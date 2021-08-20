@@ -12,4 +12,4 @@ Fooly-Cooly!
 
 ### Contact me
 
-[jugendtraum@outlook](mailto:jugendtraum@outlook.com)
+[jugendtraum@outlook.com](mailto:jugendtraum@outlook.com)
