@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
->_<
+无限大な梦のあとの 何もない世の中じゃ
 
 ### More Information
 
