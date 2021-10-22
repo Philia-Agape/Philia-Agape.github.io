@@ -35,6 +35,21 @@ The output(surprised?):
 a = 7
 b = 8
 
+This is an example of changing elements in set using const_cast, but the alphabetic order is no longer preserved 
+```cpp
+   set<string> myset{"hello","hi","hey"};
+   set<string>:: iterator itr = myset.begin();
+   const_cast<string&> (*itr) = "hooray";
+   for(auto itr = myset.begin(); itr!=myset.end(); ++itr)
+      cout<< *itr <<'\t';
+   cout <<"\n";   
+   set<int> mynum{1,2,3};
+   set<int>:: iterator itr2 = mynum.begin();
+   const_cast<int&> (*itr2) = 4;
+   for(auto itr2 = mynum.begin(); itr2!=mynum.end(); ++itr2)
+      cout<< *itr2 <<'\t';
+   cout <<"\n";   
+```
 For more "cast" function, here's reference to [Source Code Credit](https://en.cppreference.com/w/cpp/language/const_cast).  
 
 
