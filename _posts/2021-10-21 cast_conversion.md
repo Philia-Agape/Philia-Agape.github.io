@@ -2,6 +2,7 @@
 layout: post
 title: cast conversion in C++
 ---
+
 The problem arises with the modification of set value in C++, consider the example: 
 ```cpp     
 set<string> myset{"hello","hi","hey"};
@@ -51,7 +52,6 @@ This is an example of changing elements in set using const_cast, but the alphabe
    cout <<"\n";   
 ```
 For more "cast" function, here's reference to [Source Code Credit](https://en.cppreference.com/w/cpp/language/const_cast).  
-
 
 
 
