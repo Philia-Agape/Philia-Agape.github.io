@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Modify set value: cast_conversion in C++
+title: Modify Set Value
 ---
 
 The problem arises with the modification of set value in C++, consider the example: 
@@ -33,6 +33,7 @@ CODE FOLLOWS:
    cout << "b = " << b << "\n"; 
 ```
 The output(surprised?):
+
 a = 7
 
 b = 8
@@ -62,8 +63,11 @@ This is an example of changing elements in set using const_cast, but the alphabe
 ```
 The output:
 hello	hey	hi	(ordered!)
+
 hooray	hey	hi	(not ordered!)
+
 1	2	3	(ordered!)
+
 4	2	3	(not ordered!)
 
 That's why set value is always suggested to modify by insert, erase, swap, and clear function) to preserve the alphabetic order.
