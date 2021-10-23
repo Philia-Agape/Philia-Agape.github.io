@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Modify Set Value
+title: Modify Set Value 
 ---
 
 The problem arises with the modification of set value in C++, consider the example: 
