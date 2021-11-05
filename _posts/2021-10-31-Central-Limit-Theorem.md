@@ -1,3 +1,8 @@
+<script type="text/javascript" async
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js? 
+config=TeX-MML-AM_CHTML"
+</script>
+
 ----------
 Title: Central Limit Theorem
 ----------
@@ -19,7 +24,7 @@ The probability density function is $`\frac{1}{\sigam \sqrt{2\pi}} \int_{-\infty
 ```math
 $$\frac{1}{3} = a$$
 ```
-
+$$x_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2b}.$$
 equation | description
 ----------|------------
 $\nabla \cdot \vec{\mathbf{B}}  = 0$ | divergence of $\vec{\mathbf{B}}$ is zero
