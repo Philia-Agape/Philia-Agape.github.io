@@ -11,15 +11,19 @@ Title: Central Limit Theorem
 The following statement about central limit theorem in statistics:
 
 Given one kind of random variable X, with mean $$\mu$$ and standard deviation $$\sigma$$, then if we pick n such samples, 
-the mean of these sample would be \mu and the variance of these samples should be $$\frac{\mu}{\sqrt{n}}.$$
+the mean of these sample would be \mu and the variance of these samples should be 
+
+$$\frac{\mu}{\sqrt{n}}.$$
 
 The mean is intuitively direct to understand, let's recall first the derivation of mean and variance of gaussian distribution.
 
-The probability density function is $$\frac{1}{\sigam \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{x-\mu}{\sqrt{2}\sigma})) dx = 1.$$
-```math
+The probability density function is 
+$$\frac{1}{\sigam \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{x-\mu}{\sqrt{2}\sigma})) dx = 1.$$
+
 $$\frac{1}{3} = a.$$
-```
+
 $$x_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2b}.$$
+
 equation | description
 ----------|------------
 $$\nabla \cdot \vec{\mathbf{B}}  = 0.$$ | divergence of $$\vec{\mathbf{B}}.$$ is zero
