@@ -11,17 +11,17 @@ Title: Central Limit Theorem
 The following statement about central limit theorem in statistics:
 
 Given one kind of random variable X, with mean $$\mu$$ and standard deviation $$\sigma$$, then if we pick n such samples, 
-the mean of these sample would be \mu and the variance of these samples should be $$\frac{\mu}{\sqrt{n}}$$
+the mean of these sample would be \mu and the variance of these samples should be $$\frac{\mu}{\sqrt{n}}.$$
 
 The mean is intuitively direct to understand, let's recall first the derivation of mean and variance of gaussian distribution.
 
-The probability density function is $$\frac{1}{\sigam \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{x-\mu}{\sqrt{2}\sigma})) dx = 1$$
+The probability density function is $$\frac{1}{\sigam \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{x-\mu}{\sqrt{2}\sigma})) dx = 1.$$
 ```math
-$$\frac{1}{3} = a$$
+$$\frac{1}{3} = a.$$
 ```
 $$x_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2b}.$$
 equation | description
 ----------|------------
-$\nabla \cdot \vec{\mathbf{B}}  = 0$ | divergence of $\vec{\mathbf{B}}$ is zero
+$$\nabla \cdot \vec{\mathbf{B}}  = 0.$$ | divergence of $$\vec{\mathbf{B}}.$$ is zero
 $\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t}  = \vec{\mathbf{0}}$ |  curl of $\vec{\mathbf{E}}$ is proportional to the rate of change of $\vec{\mathbf{B}}$
 $\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} = \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} = 4 \pi \rho$ | _wha?_
