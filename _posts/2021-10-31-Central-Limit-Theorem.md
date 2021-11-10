@@ -8,7 +8,12 @@ Title: Central Limit Theorem
  
 ## Binomial, Gaussian, Poisson distribution
 These are three most-frequent statistical distribution, let's briefly discuss each one.
-For Binomial distribution, it comes from 
+For Binomial distribution, it originates from the flip coin example: once you flip the coin, the possible outcome would
+be either head or tail, and a uniform coin would have fifty-fifty chance, namely $$p = Pr(head,one toss) = 0.5$$ and 
+$$q = Pr(tail, one toss) = 0.5 = 1-p$$. 
+In general, Given n trial of one Binomial random variable, say $$X = \sum_{i=1}^{n} x_{i}$$ the expected value (mean) 
+is $$E(X) = \sum_{k=0}^{n} \binom(n,k) k(1-k)$$
+
 
 The mean is intuitively direct to understand, let's recall first the derivation of mean and variance of gaussian distribution.
 The probability density function is $$\frac{1}{\sigam \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{x-\mu}{\sqrt{2}\sigma})) \, dx = 1.$$ 
