@@ -1,6 +1,7 @@
-----------
+---
 Title: Central Limit Theorem
-----------
+---
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
@@ -31,7 +32,7 @@ The mean is intuitively direct to understand, let's recall first the derivation 
 The probability density function is \[ \frac{1}{\sigam \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{x-\mu}{\sqrt{2}\sigma})) \, dx = 1. \]
 Note if we denote the integral $$\int_{-\infty}^{\infty} exp() \, dx
 
-\[ x_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2b} \].
+\\[ x_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2b} \\].
 
 
 ## MaxWell Equation
