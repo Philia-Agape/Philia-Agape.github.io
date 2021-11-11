@@ -23,6 +23,11 @@ The expected value (mean) of X is
 and the variance of X is 
 \\[\ \Var(X) = \sum_{k=0}^{n} \binom(n,k) p^{k} q^{n-k} (k*(1-\mu)^{2} + (n-k)*(0-\mu)^{2}) = npq \\]
 
+Then, $$\begin{align}
+Then,\ (x+z)+t & = x+(z+t)\ (\because Rule2) \\
+& = x+0_V \\
+& = x\ (\because Rule3) \\
+\end{align}$$
 
 
 ## Central Limit Theorem and Sample Variance
