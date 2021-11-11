@@ -32,7 +32,7 @@ The mean is intuitively direct to understand, let's recall first the derivation 
 The probability density function is \[ \frac{1}{\sigam \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{x-\mu}{\sqrt{2}\sigma})) \, dx = 1. \]
 Note if we denote the integral $$\int_{-\infty}^{\infty} exp() \, dx
 
-\\[ x_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2b} \\].
+\\[\ x_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2b} \\].
 
 
 ## MaxWell Equation
