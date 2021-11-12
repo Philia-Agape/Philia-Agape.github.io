@@ -21,13 +21,18 @@ The expected value (mean) of X is $$ E (X) = \sum_{k=0}^{n} \binom{n}{k} p^k q^{
 \sum_{k=1}^{n} n * \binom{n-1}{k-1} p * p^{k-1} q^{(n-1)-(k-1)} = np \sum_{t=0}^{n-1} \binom{n-1}{t} p^{t} q^{(n-1)-t} 
 = np (p+q)^{n-1} = np $$, 
 
-The variance of X can be calculated in two ways: directly from definition $$ Var() = \sum P(x)(x-\mu)^2$$
-or use the formula $$ Var(X) 
-= \sum_{i=0}^{n} (x_i-\mu)^2 = \sum_{i=0}^{n} (x_i)^2 - 2\mu \sum_{i=0}^{n} x_i + \sum_{i=0}^{n} (\mu)^2
-= \sum_{i=0}^{n} (x_i)^2 - 2n(\mu)^2 + 
-= \mathbb{E} (X^2) - \left( \mathbb{E} (X) \right)^{2} $$
+The variance of X can be calculated in two ways: directly from definition $$ Var(X) = \sum_{y} P(y)(\mathbb{E}(y)-\mu)^2 $$
+where $$ y \in \mathcal{X} $$ is in the sample set (all possible outcome of n toss),
 
-$$ Var (X) = \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} (k * (1-\mu)^{2} + (n-k) * (0-\mu)^2)
+or notice the fact that $$ n * Var (X) 
+= \sum_{i=0}^{n} (x_i-\mu)^2 = \sum_{i=0}^{n} (x_i)^2 - 2\mu \sum_{i=0}^{n} x_i + \sum_{i=0}^{n} (\mu)^2
+= \sum_{i=0}^{n} (x_i)^2 - 2n(\mu)^2 + n(\mu)^2
+= \sum_{i=0}^{n} (x_i)^2 - n(\mu)^2 $$, 
+
+Therefore, $$ Var (X) = \frac{\sum_{i=0}^{n} (x_i)^2}{n} - \frac{\mu^{2}}{n} = \mathbb{E} (X^2) - \left( \mathbb{E} (X) \right)^{2} $$,
+this reduces to find the expected value of $$ \mathbb{E} (X^2) $$.
+
+By direct definition, $$ Var (X) = \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} (k * (1-\mu)^{2} + (n-k) * (0-\mu)^2)
 = \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} (kn^2 p^2 - 2knp + k + n^3 p^2 - kn^2 p^2) 
 = \sum_{k=0}^{n} \binom{n}{k} k * p^{k} q^{n-k} (1-2np) + \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} n^3 p^2
 = np(1-2np) \sum_{k=1}^{n} \binom{n-1}{k-1} p^{k-1} q^{(n-1)-(k-1)} + n^3 p^2 \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} 
@@ -36,6 +41,10 @@ $$ Var (X) = \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} (k * (1-\mu)^{2} + (n-k) 
 = np - 2n^2 p^2 + n^3 p^2
 = np(1-2np+n^2 p)
 = npq $$
+
+Alternatively, $$ Var (X) = \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} k^2 - \left( \sum_{k=0}^{n} \binom{n}{k} p^k q^{n-k} * k \right)^2
+= n \sum_{k=0}^{n} \binom{n-1}{k-1} p^{k} q^{n-k} () + (np)^2
+$$
 
 Then, 
 $$
