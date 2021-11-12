@@ -22,49 +22,71 @@ The expected value (mean) of X is $$ E (X) = \sum_{k=0}^{n} \binom{n}{k} p^k q^{
 = np (p+q)^{n-1} = np $$, 
 
 The variance of X can be calculated in two ways: directly from definition $$ Var(X) = \sum_{y} P(y)(\mathbb{E}(y)-\mu)^2 $$
-where $$ y \in \mathcal{X} $$ is in the sample set (all possible outcome of n toss), or notice the fact that $$ n * Var (X) 
+where $$ y \in \mathcal{X} $$ is in the sample set (all possible outcome of n toss), or notice the fact that
+
+$$ n * Var (X) 
 = \sum_{i=0}^{n} (x_i-\mu)^2 = \sum_{i=0}^{n} (x_i)^2 - 2\mu \sum_{i=0}^{n} x_i + \sum_{i=0}^{n} (\mu)^2
 = \sum_{i=0}^{n} (x_i)^2 - 2n(\mu)^2 + n(\mu)^2
 = \sum_{i=0}^{n} (x_i)^2 - n(\mu)^2 $$. 
 
 Therefore, $$ Var (X) = \frac{\sum_{i=0}^{n} (x_i)^2}{n} - \frac{\mu^{2}}{n} = \mathbb{E} (X^2) - \left( \mathbb{E} (X) \right)^{2} $$,
-this reduces to find the expected value of $$ \mathbb{E} (X^2) $$.
+this reduces to find the expected value of $$ \mathbb{E} (X^2) $$. AN IMPORTANT THING TO NOTE HERE IS THAT, Given $$X = \sum_{i=0}^{n} x_i$$ ,
+$$ \mathbb{E} (X^2) = \sum_{i=0}^{n} (x_i)^2 $$, instead of $$ \mathbb{E} (X^2) = \left( \sum_{i=0}^{n} (x_i) \right)^2 $$ ::Abuse of notation here;) 
 
 By direct definition, 
 
 $$ Var (X) = \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} (k-\mu)^{2}
-= \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} k^2 - \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} 2npk + \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} n^2 p^2 
-= np \sum_{k=1}^{n} \binom{n-1}{k-1} p^{k-1} q^{(n-1)-(k-1)} ((k-1)+1) - 2 n^2 p^2 \sum_{k=1}^{n} \binom{n-1}{k-1} p^{k-1} q^{(n-1)-(k-1)} + \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} n^2 p^2
-= n(n-1)p^2 \sum_{k=2}^{n} \binom{n-2}{k-2} p^{k-2} q^{(n-2)-(k-2)} + np \sum_{k=1}^{n} \binom{n-1}{k-1} p^{k-1} q^{(n-1)-(k-1)} - 2 n^2 p^2 \sum_{k=1}^{n} \binom{n-1}{k-1} p^{k-1} q^{(n-1)-(k-1)} + \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} n^2 p^2
-= n(n-1)p^2 \sum_{t=0}^{n-2} \binom{n-2}{t} p^{t} q^{(n-2)-t} + np \sum_{t=0}^{n-1} \binom{n-1}{t} p^{t} q^{(n-1)-t} - 2 n^2 p^2 \sum_{t=0}^{n-1} \binom{n-1}{t} p^{t} q^{(n-1)-t} + \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} n^2 p^2
-= n(n-1)p^2 (p+q)^{n-2} + np(p+q)^{n-1} - 2 n^2 p^2 (p+q)^{n-1} + n^2 p^2 (p+q)^{n}
-= n(n-1)p^2 + np - 2n^2 p^2 + n^2 p^2
-= np - np^2 = np(1-p) = npq $$
 
-Alternatively, $$ Var (X) = \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} k^2 - \left( \sum_{k=0}^{n} \binom{n}{k} p^k q^{n-k} * k \right)^2
+= \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} k^2 - \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} 2npk + \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} n^2 p^2 
+
+= np \sum_{k=1}^{n} \binom{n-1}{k-1} p^{k-1} q^{(n-1)-(k-1)} ((k-1)+1) - 2 n^2 p^2 \sum_{k=1}^{n} \binom{n-1}{k-1} p^{k-1} q^{(n-1)-(k-1)} + \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} n^2 p^2
+
+= n(n-1)p^2 \sum_{k=2}^{n} \binom{n-2}{k-2} p^{k-2} q^{(n-2)-(k-2)} + np \sum_{k=1}^{n} \binom{n-1}{k-1} p^{k-1} q^{(n-1)-(k-1)} - 2 n^2 p^2 \sum_{k=1}^{n} \binom{n-1}{k-1} p^{k-1} q^{(n-1)-(k-1)} + \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} n^2 p^2
+
+= n(n-1)p^2 \sum_{t=0}^{n-2} \binom{n-2}{t} p^{t} q^{(n-2)-t} + np \sum_{t=0}^{n-1} \binom{n-1}{t} p^{t} q^{(n-1)-t} - 2 n^2 p^2 \sum_{t=0}^{n-1} \binom{n-1}{t} p^{t} q^{(n-1)-t} + \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} n^2 p^2
+
+= n(n-1)p^2 (p+q)^{n-2} + np(p+q)^{n-1} - 2 n^2 p^2 (p+q)^{n-1} + n^2 p^2 (p+q)^{n}
+
+= n(n-1)p^2 + np - 2n^2 p^2 + n^2 p^2
+
+= np - np^2 = np(1-p) = npq \blacksquare$$
+
+Alternatively,
+
+$$ Var (X) = \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} k^2 - \left( \sum_{k=0}^{n} \binom{n}{k} p^k q^{n-k} * k \right)^2
+
 = np \sum_{k=0}^{n} \binom{n-1}{k-1} p^{k-1} q^{(n-1)-(k-1)} ((k-1)+1) - (np)^2
+
 = np \sum_{k=1}^{n} \binom{n-1}{k-1} p^{k-1} q^{(n-1)-(k-1)} (k-1) + np \sum_{k=1}^{n} \binom{n-1}{k-1} p^{k-1} q^{(n-1)-(k-1)} - (np)^2
+
 = n(n-1)p \sum_{k=2}^{n} \binom{n-2}{k-2} p^{k-1} q^{(n-1)-(k-1)} + np \sum_{k=1}^{n} \binom{n-1}{k-1} p^{k-1} q^{(n-1)-(k-1)} - (np)^2
+
 = n(n-1)p^2 \sum_{k=2}^{n} \binom{n-2}{k-2} p^{k-2} q^{(n-2)-(k-2)} + np \sum_{t=0}^{n-1} \binom{n-1}{t} p^{t} q^{(n-1)-t} - (np)^2
+
 = n(n-1)p^2 \sum_{t=0}^{n-2} \binom{n-2}{t} p^{t} q^{(n-2)-t)} + np (p+q)^{n-1} - (np)^2
+
 = n(n-1)p^2 (p+q)^{n-2} + np (p+q)^{n-1} - (np)^2
-= np(1-p) = npq $$
+
+= np(1-p) = npq \blacksquare $$
 
 Then, 
-$$\begin{align*}
-(x+z)+t = x+(z+t)
 
-& = x+0_V 
-
-& = x 
-$$\end{align*}
+\begin{align}
+a_1 &= \beta_0 \\
+ &= \beta_1 \\
+ &= \beta_2 \\
+ &= \beta_3
+\end{align}
 
 For the Gaussian distribution, we have the classical white noise graph, and if we start with the random variable X with $$ \mathbb{E} (X) = \mu $$ and
 $$ Var (X) = \sigma $$, and let $$ Z = \frac{X-\mu}{\sigma} $$ be the new random variable, since $$ E (Z) = E(\frac{X}{\sigma}) - \frac{\mu}{\sigma} 
 = 0 $$, but how to calculate $$ Var(Z) $$ or $$ \mathbb{E} (X^2) $$ then?
 
 We introduce the idea of probability density function here, $$\frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-\frac{(x-\mu)^2}{2 \sigma^2}) \, dx$$ 
-This is the density function which defined at any real point, that is, the result of the integral is 1.
+This is the density function which defined at any real point, that is, the result of the integral is 1. The trick to prove is first consider this integral,
+$$ \emph{I} = \int\limits_{-\infty}^{\infty} exp(-x^2) dx $$, if we start with integration by parts, we would have 
+
+$$ \emph{I} = \int\limits_{-\infty}^{\infty} exp(-x^2) dx = $$  
 
 The 
 
