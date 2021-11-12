@@ -11,21 +11,26 @@ Title: Central Limit Theorem
 These are three most-frequent statistical distribution, let's briefly discuss each one.
 For Binomial distribution, it originates from the flip coin example: once you flip the coin, the possible outcome would
 be either head or tail, and a uniform coin would have fifty-fifty chance, namely 
-$$p = P(head,\ one \ toss) = 0.5$$ and $$ q = P(tail, \ one \ toss) = 0.5 = 1-p $$. 
+\\[\ p = P(head,\ one \ toss) = 0.5 \ and \ q = P(tail, \ one \ toss) = 0.5 = 1-p \\]. 
 
 In general, Given n trial of one Binomial random variable, say $$ X = \sum_{i=1}^{n} x_i $$ 
+
 where $$ E (x_i) = 1 * p + 0 * q = p $$, $$ Var (x_i) = p * (1-\mu)^{2} + q*(0-\mu)^{2} = p * (1-p)^2 + (1-p) * p^2 = p-p^2 = p(1-p) = pq $$
+
 The expected value (mean) of X is $$ E (X) = \sum_{k=0}^{n} \binom{n}{k} p^k q^{n-k} * k =  
 \sum_{k=1}^{n} n * \binom{n-1}{k-1} p * p^{k-1} q^{(n-1)-(k-1)} = np \sum_{t=0}^{n-1} \binom{n-1}{t} p^{t} q^{(n-1)-t} 
 = np (p+q)^{n-1} = np $$, 
-and the variance of X is 
+
+The variance of X is 
 $$ Var (X) = \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} (k * (1-\mu)^{2} + (n-k) * (0-\mu)^2) = npq $$
 
 Then, 
 $$
-(x+z)+t & = x+(z+t) \ ( \ because Rule2) \\
-& = x+0_V \\
-& = x \ (\because Rule3) \\
+(x+z)+t & = x+(z+t)
+
+& = x+0_V 
+
+& = x \ 
 $$
 
 For the Gaussian distribution, we have the classical white noise graph, and we start with the random variable $$ \mathbb{E} (X) = \mu $$ and
@@ -34,6 +39,7 @@ $$ Var (X) = \sigma $$, and let $$ Z = \frac{X-\mu}{\sigma} $$ be the new random
 
 ## Central Limit Theorem and Sample Variance
 The following statement about central limit theorem in statistics:
+
 Given one kind of random variable X, with mean $$\mu$$ and standard deviation $$\sigma$$, then if we pick n such samples, 
 the mean of these sample would be $$\mu$$ and the variance of these samples should be $$\frac{\mu}{\sqrt{n}}.$$
 
