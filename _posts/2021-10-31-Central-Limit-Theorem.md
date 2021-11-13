@@ -78,6 +78,18 @@ a_1 &= \beta_0 \\
  &= \beta_3
 \end{align}
 
+$$\begin{equation}
+\frac{
+    \begin{array}[b]{r}
+      \left( x_1 x_2 \right)\\
+      \times \left( x'_1 x'_2 \right)
+    \end{array}
+  }{
+    \left( y_1y_2y_3y_4 \right)
+  }
+\end{equation}$$
+
+
 For the Gaussian distribution example, we have the classical white noise graph, or ![bean machine]({{ site.baseurl }}/images/normal.jpg "an image title")
 There was saying that normal distribution was invented from study of coefficients of binomial expansion, check stirling's approximation for more info.
 
@@ -106,11 +118,14 @@ this representation is unique.
 
 $$\emph{I}^2 = \left( \int\limits_{-\infty}^{\infty} exp(-x^2) \, dx \right) * \left( \int\limits_{-\infty}^{\infty} exp(-y^2) \, dy \right)  
 = \int\limits_{-\infty}^{\infty} \int\limits_{-\infty}^{\infty} exp(-(x^2+y^2)) \, dx \, dy 
-= \int\limits_{0}^{\infty} \int\limits_{0}^{2\pi} exp(-(x^2+y^2)) \, d\theta \, dr
-= 
+= \int\limits_{0}^{\infty} \int\limits_{0}^{2\pi} exp(-r^2) \, r \, dr \, d\theta
+= \int\limits_{0}^{2\pi} \frac{-1}{2} exp^{-x^2} |_{0}^{\infty}
+= \pi
 $$ 
 
-The 
+Note the geometric meaning of this integral is the volume of the enclosed object with height of $$exp(-x^2)$$, and this volume is bounded (not infinity),  
+hence, we have the small division of area $r \, dr \, d\theta$ and take a loop of $$ 2\pi $$, 
+
 
 #### Central Limit Theorem and Sample Variance
 The following statement about central limit theorem in statistics:
