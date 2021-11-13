@@ -7,7 +7,7 @@ Title: Central Limit Theorem
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
  
-## Binomial, Gaussian, Poisson distribution
+### Binomial, Gaussian, Poisson distribution
 These are three most-frequent statistical distribution, let's briefly discuss each one.
 For Binomial distribution, it originates from the flip coin example: once you flip the coin, the possible outcome would
 be either head or tail, and a uniform coin would have fifty-fifty chance, namely 
@@ -30,8 +30,8 @@ $$ n * Var (X)
 = \sum_{i=0}^{n} (x_i)^2 - n(\mu)^2 $$. 
 
 Therefore, $$ Var (X) = \frac{\sum_{i=0}^{n} (x_i)^2}{n} - \frac{\mu^{2}}{n} = \mathbb{E} (X^2) - \left( \mathbb{E} (X) \right)^{2} $$,
-this reduces to find the expected value of $$ \mathbb{E} (X^2) $$. AN IMPORTANT THING TO NOTE HERE IS THAT, Given $$X = \sum_{i=0}^{n} x_i$$ ,
-$$ \mathbb{E} (X^2) = \sum_{i=0}^{n} (x_i)^2 $$, instead of $$ \mathbb{E} (X^2) = \left( \sum_{i=0}^{n} (x_i) \right)^2 $$ ::Abuse of notation here;) 
+this reduces to find the expected value of $$ \mathbb{E} (X^2) $$. **AN IMPORTANT THING TO NOTE HERE IS THAT**, Given $$X = \sum_{i=0}^{n} x_i$$ ,
+$$ \mathbb{E} (X^2) = \sum_{i=0}^{n} (x_i)^2 $$, instead of $$ \mathbb{E} (X^2) = \left( \sum_{i=0}^{n} (x_i) \right)^2 $$. Indeed Abuse of notation here;) 
 
 By direct definition, 
 
@@ -78,19 +78,41 @@ a_1 &= \beta_0 \\
  &= \beta_3
 \end{align}
 
-For the Gaussian distribution, we have the classical white noise graph, and if we start with the random variable X with $$ \mathbb{E} (X) = \mu $$ and
+For the Gaussian distribution example, we have the classical white noise graph, or ![bean machine]({{ site.baseurl }}/images/normal.jpg "an image title")
+There was saying that normal distribution was invented from study of coefficients of binomial expansion, check stirling's approximation for more info.
+
+Suppose we start with the random variable X with $$ \mathbb{E} (X) = \mu $$ and
 $$ Var (X) = \sigma $$, and let $$ Z = \frac{X-\mu}{\sigma} $$ be the new random variable, since $$ E (Z) = E(\frac{X}{\sigma}) - \frac{\mu}{\sigma} 
 = 0 $$, but how to calculate $$ Var(Z) $$ or $$ \mathbb{E} (X^2) $$ then?
 
 We introduce the idea of probability density function here, $$\frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-\frac{(x-\mu)^2}{2 \sigma^2}) \, dx$$ 
 This is the density function which defined at any real point, that is, the result of the integral is 1. The trick to prove is first consider this integral,
-$$ \emph{I} = \int\limits_{-\infty}^{\infty} exp(-x^2) dx $$, if we start with integration by parts, we would have 
+$$ \emph{I} = \int\limits_{-\infty}^{\infty} exp(-x^2) \, dx $$, if we start with integration by parts, we would have 
 
-$$ \emph{I} = \int\limits_{-\infty}^{\infty} exp(-x^2) dx = $$  
+$$ \emph{I} = \int\limits_{-\infty}^{\infty} exp(-x^2) \, dx = x exp^{-x^2} |_{-\infty}^{\infty} - \int\limits_{-\infty}^{\infty} -2x^2 exp(-x^2) \, dx
+= \frac 23 \int\limits_{-\infty}^{\infty} exp(-x^2) \, dx^3 
+= \frac 23 x^3 exp^{-x^2} |_{-\infty}^{\infty} - \frac 23 \int\limits_{-\infty}^{\infty} -2x^4 exp(-x^2) \, dx  
+= \frac{4}{15} \int\limits_{-\infty}^{\infty} exp(-x^2) \, dx^5 
+= \frac{4}{15} x^5 exp^{-x^2} |_{-\infty}^{\infty} - \frac{4}{15} \int\limits_{-\infty}^{\infty} -2x^4 exp(-x^2) \, dx 
+= \frac{8}{105} \int\limits_{-\infty}^{\infty} exp(-x^2) \, dx^7
+= \frac{8}{105} x^7 exp^{-x^2} |_{-\infty}^{\infty} + \frac{16}{945} \int\limits_{-\infty}^{\infty}  exp(-x^2) \, dx^9
+= \dots
+$$  
+
+This would continues forever and seems not wise to do the partial sum anymore, and the trick is to consider the square of $$\emph I$$, notice there's
+an injective isomorphism $$ (x, \, y) \longmapsto (r, \, \theta) $$, where $$ -\infty < x < \infty$$, $$ -\infty < y < \infty$$, and $$ 0 \leq r < \infty $$, 
+$$ 0 \leq \theta \leq 2\pi$$. i.e. This map is 1-1 and onto, to make it simpler, every point in the real plane can be parameterized by radius and angle, besides 
+this representation is unique. 
+
+$$\emph{I}^2 = \left( \int\limits_{-\infty}^{\infty} exp(-x^2) \, dx \right) * \left( \int\limits_{-\infty}^{\infty} exp(-y^2) \, dy \right)  
+= \int\limits_{-\infty}^{\infty} \int\limits_{-\infty}^{\infty} exp(-(x^2+y^2)) \, dx \, dy 
+= \int\limits_{0}^{\infty} \int\limits_{0}^{2\pi} exp(-(x^2+y^2)) \, d\theta \, dr
+= 
+$$ 
 
 The 
 
-## Central Limit Theorem and Sample Variance
+#### Central Limit Theorem and Sample Variance
 The following statement about central limit theorem in statistics:
 
 Given one kind of random variable X, with mean $$\mu$$ and standard deviation $$\sigma$$, then if we pick n such samples, 
