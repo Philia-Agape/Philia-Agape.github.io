@@ -71,12 +71,12 @@ $$ Var (X) = \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} k^2 - \left( \sum_{k=0}^{
 
 Then, 
 
-\begin{align}
-a_1 &= \beta_0 \\
- &= \beta_1 \\
- &= \beta_2 \\
- &= \beta_3
-\end{align}
+
+\\[\ a_1 &= \beta_0 \\]
+\\[\ &= \beta_1 \\]
+\\[\ &= \beta_2 \\]
+\\[\ &= \beta_3 \\]
+
 
 $$\begin{equation}
 \frac{
@@ -111,7 +111,7 @@ $$ \emph{I} = \int\limits_{-\infty}^{\infty} exp(-x^2) \, dx = x exp^{-x^2} |_{-
 = \dots
 $$  
 
-This would continues forever and seems not wise to do the partial sum anymore, and the trick is to consider the square of $$\emph I$$, notice there's
+This would continues forever and seems not wise to do the partial sum anymore, and the trick is to consider the square of $$\emph {I}$$, notice there's
 an injective isomorphism $$ (x, \, y) \longmapsto (r, \, \theta) $$, where $$ -\infty < x < \infty$$, $$ -\infty < y < \infty$$, and $$ 0 \leq r < \infty $$, 
 $$ 0 \leq \theta \leq 2\pi$$. i.e. This map is 1-1 and onto, to make it simpler, every point in the real plane can be parameterized by radius and angle, besides 
 this representation is unique. 
