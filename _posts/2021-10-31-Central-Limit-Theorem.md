@@ -7,7 +7,7 @@ Title: Central Limit Theorem
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
  
-### Binomial, Gaussian, Poisson distribution
+## Binomial, Gaussian, Poisson distribution
 These are three most-frequent statistical distribution, let's briefly discuss each one.
 For Binomial distribution, it originates from the flip coin example: once you flip the coin, the possible outcome would
 be either head or tail, and a uniform coin would have fifty-fifty chance, namely 
@@ -72,10 +72,10 @@ $$ Var (X) = \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} k^2 - \left( \sum_{k=0}^{
 Then, 
 
 
-\\[\ a_1 &= \beta_0 \\]
-\\[\ &= \beta_1 \\]
-\\[\ &= \beta_2 \\]
-\\[\ &= \beta_3 \\]
+\\[\ a_1 = x \\]
+\\[\ &= x+y \\]
+\\[\ &= \mu \\]
+\\[\ &= \frac{z^2}{c} \\]
 
 
 $$\begin{equation}
@@ -99,9 +99,9 @@ $$ Var (X) = \sigma $$, and let $$ Z = \frac{X-\mu}{\sigma} $$ be the new random
 
 We introduce the idea of probability density function here, $$\frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-\frac{(x-\mu)^2}{2 \sigma^2}) \, dx$$ 
 This is the density function which defined at any real point, that is, the result of the integral is 1. The trick to prove is first consider this integral,
-$$ \emph{I} = \int\limits_{-\infty}^{\infty} exp(-x^2) \, dx $$, if we start with integration by parts, we would have 
+$$ I = \int\limits_{-\infty}^{\infty} exp(-x^2) \, dx $$, if we start with integration by parts, we would have 
 
-$$ \emph{I} = \int\limits_{-\infty}^{\infty} exp(-x^2) \, dx = x exp^{-x^2} |_{-\infty}^{\infty} - \int\limits_{-\infty}^{\infty} -2x^2 exp(-x^2) \, dx
+$$ I = \int\limits_{-\infty}^{\infty} exp(-x^2) \, dx = x exp^{-x^2} |_{-\infty}^{\infty} - \int\limits_{-\infty}^{\infty} -2x^2 exp(-x^2) \, dx
 = \frac 23 \int\limits_{-\infty}^{\infty} exp(-x^2) \, dx^3 
 = \frac 23 x^3 exp^{-x^2} |_{-\infty}^{\infty} - \frac 23 \int\limits_{-\infty}^{\infty} -2x^4 exp(-x^2) \, dx  
 = \frac{4}{15} \int\limits_{-\infty}^{\infty} exp(-x^2) \, dx^5 
@@ -116,7 +116,7 @@ an injective isomorphism $$ (x, \, y) \longmapsto (r, \, \theta) $$, where $$ -\
 $$ 0 \leq \theta \leq 2\pi$$. i.e. This map is 1-1 and onto, to make it simpler, every point in the real plane can be parameterized by radius and angle, besides 
 this representation is unique. 
 
-$$\emph{I}^2 = \left( \int\limits_{-\infty}^{\infty} exp(-x^2) \, dx \right) * \left( \int\limits_{-\infty}^{\infty} exp(-y^2) \, dy \right)  
+$$ I^2 = \left( \int\limits_{-\infty}^{\infty} exp(-x^2) \, dx \right) * \left( \int\limits_{-\infty}^{\infty} exp(-y^2) \, dy \right)  
 = \int\limits_{-\infty}^{\infty} \int\limits_{-\infty}^{\infty} exp(-(x^2+y^2)) \, dx \, dy 
 = \int\limits_{0}^{\infty} \int\limits_{0}^{2\pi} exp(-r^2) \, r \, dr \, d\theta
 = \int\limits_{0}^{2\pi} \frac{-1}{2} exp^{-x^2} |_{0}^{\infty}
@@ -124,10 +124,11 @@ $$\emph{I}^2 = \left( \int\limits_{-\infty}^{\infty} exp(-x^2) \, dx \right) * \
 $$ 
 
 Note the geometric meaning of this integral is the volume of the enclosed object with height of $$exp(-x^2)$$, and this volume is bounded (not infinity),  
-hence, we have the small division of area $r \, dr \, d\theta$ and take a loop of $$ 2\pi $$, 
+hence, we have the small division of area (this's how we are dividing the whole plane) $$r \, dr \, d\theta $$ and take a loop of $$ 2\pi $$; The other 
+explanation is via determinant of jacobian matrix. 
 
 
-#### Central Limit Theorem and Sample Variance
+## Central Limit Theorem and Sample Variance
 The following statement about central limit theorem in statistics:
 
 Given one kind of random variable X, with mean $$\mu$$ and standard deviation $$\sigma$$, then if we pick n such samples, 
