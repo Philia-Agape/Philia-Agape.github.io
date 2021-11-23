@@ -23,4 +23,6 @@ Therefore, we say $$\mathbb{G} = {U, \, D, \, L, \, R, \, F, \,B} $$ is the gene
 
 ## Solveing the cube: Thistlethwaite, Iterative_deepening_A*
 
-The origin method contributes from [Thistlethwaite's algorithm](https://www.jaapsch.net/puzzles/thistle.htm). The algebraic structure was explained in detail by the chain of subgroup.  
+The origin method contributes from [Thistlethwaite's algorithm](https://www.jaapsch.net/puzzles/thistle.htm). The algebraic structure was explained in detail by the chain of subgroup. 
+
+[Iterative_deepening_A*](https://www.diva-portal.org/smash/get/diva2:816583/FULLTEXT01.pdf).
