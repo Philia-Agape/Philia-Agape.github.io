@@ -31,64 +31,37 @@ $$ n * Var (X)
 
 Therefore, $$ Var (X) = \frac{\sum_{i=0}^{n} (x_i)^2}{n} - \frac{\mu^{2}}{n} = \mathbb{E} (X^2) - \left( \mathbb{E} (X) \right)^{2} $$,
 this reduces to find the expected value of $$ \mathbb{E} (X^2) $$. **AN IMPORTANT THING TO NOTE HERE IS THAT**, Given $$X = \sum_{i=0}^{n} x_i$$ ,
-$$ \mathbb{E} (X^2) = \sum_{i=0}^{n} (x_i)^2 $$, instead of $$ \mathbb{E} (X^2) = \left( \sum_{i=0}^{n} (x_i) \right)^2 $$. Indeed Abuse of notation here;) 
+$$ \mathbb{E} (X^2) = \frac{\sum_{i=0}^{n} x_i^2}{n} $$, while $$ \mathbb{E} (X^2) \neq \frac {\left( \sum_{i=0}^{n} x_i \right)^2}{n} $$. Indeed Abuse of notation here;) 
 
 By direct definition, 
 
 $$ Var (X) = \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} (k-\mu)^{2}
-
 = \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} k^2 - \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} 2npk + \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} n^2 p^2 
-
 = np \sum_{k=1}^{n} \binom{n-1}{k-1} p^{k-1} q^{(n-1)-(k-1)} ((k-1)+1) - 2 n^2 p^2 \sum_{k=1}^{n} \binom{n-1}{k-1} p^{k-1} q^{(n-1)-(k-1)} + \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} n^2 p^2
-
 = n(n-1)p^2 \sum_{k=2}^{n} \binom{n-2}{k-2} p^{k-2} q^{(n-2)-(k-2)} + np \sum_{k=1}^{n} \binom{n-1}{k-1} p^{k-1} q^{(n-1)-(k-1)} - 2 n^2 p^2 \sum_{k=1}^{n} \binom{n-1}{k-1} p^{k-1} q^{(n-1)-(k-1)} + \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} n^2 p^2
-
 = n(n-1)p^2 \sum_{t=0}^{n-2} \binom{n-2}{t} p^{t} q^{(n-2)-t} + np \sum_{t=0}^{n-1} \binom{n-1}{t} p^{t} q^{(n-1)-t} - 2 n^2 p^2 \sum_{t=0}^{n-1} \binom{n-1}{t} p^{t} q^{(n-1)-t} + \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} n^2 p^2
-
 = n(n-1)p^2 (p+q)^{n-2} + np(p+q)^{n-1} - 2 n^2 p^2 (p+q)^{n-1} + n^2 p^2 (p+q)^{n}
-
 = n(n-1)p^2 + np - 2n^2 p^2 + n^2 p^2
-
 = np - np^2 = np(1-p) = npq \blacksquare$$
 
 Alternatively,
 
 $$ Var (X) = \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} k^2 - \left( \sum_{k=0}^{n} \binom{n}{k} p^k q^{n-k} * k \right)^2
-
 = np \sum_{k=0}^{n} \binom{n-1}{k-1} p^{k-1} q^{(n-1)-(k-1)} ((k-1)+1) - (np)^2
-
 = np \sum_{k=1}^{n} \binom{n-1}{k-1} p^{k-1} q^{(n-1)-(k-1)} (k-1) + np \sum_{k=1}^{n} \binom{n-1}{k-1} p^{k-1} q^{(n-1)-(k-1)} - (np)^2
-
 = n(n-1)p \sum_{k=2}^{n} \binom{n-2}{k-2} p^{k-1} q^{(n-1)-(k-1)} + np \sum_{k=1}^{n} \binom{n-1}{k-1} p^{k-1} q^{(n-1)-(k-1)} - (np)^2
-
 = n(n-1)p^2 \sum_{k=2}^{n} \binom{n-2}{k-2} p^{k-2} q^{(n-2)-(k-2)} + np \sum_{t=0}^{n-1} \binom{n-1}{t} p^{t} q^{(n-1)-t} - (np)^2
-
 = n(n-1)p^2 \sum_{t=0}^{n-2} \binom{n-2}{t} p^{t} q^{(n-2)-t)} + np (p+q)^{n-1} - (np)^2
-
 = n(n-1)p^2 (p+q)^{n-2} + np (p+q)^{n-1} - (np)^2
-
 = np(1-p) = npq \blacksquare $$
 
 Then, 
 
 
-\\[\ a_1 = x \\]
-\\[\ &= x+y \\]
-\\[\ &= \mu \\]
-\\[\ &= \frac{z^2}{c} \\]
-
-
-$$\begin{equation}
-\frac{
-    \begin{array}[b]{r}
-      \left( x_1 x_2 \right)\\
-      \times \left( x'_1 x'_2 \right)
-    \end{array}
-  }{
-    \left( y_1y_2y_3y_4 \right)
-  }
-\end{equation}$$
-
+\\[ a_1 = x \\]
+\\[ &= x+y \\]
+\\[ &= \mu \\]
+\\[ &= \frac{z^2}{c} \\]
 
 For the Gaussian distribution example, we have the classical white noise graph, or ![bean machine]({{ site.baseurl }}/images/normal.jpg "an image title")
 There was saying that normal distribution was invented from study of coefficients of binomial expansion, check stirling's approximation for more info.
@@ -111,7 +84,7 @@ $$ I = \int\limits_{-\infty}^{\infty} exp(-x^2) \, dx = x exp^{-x^2} |_{-\infty}
 = \dots
 $$  
 
-This would continues forever and seems not wise to do the partial sum anymore, and the trick is to consider the square of $$\emph {I}$$, notice there's
+This would continues forever and seems not wise to do the partial sum anymore, and the trick is to consider the square of $$ I $$, notice there's
 an injective isomorphism $$ (x, \, y) \longmapsto (r, \, \theta) $$, where $$ -\infty < x < \infty$$, $$ -\infty < y < \infty$$, and $$ 0 \leq r < \infty $$, 
 $$ 0 \leq \theta \leq 2\pi$$. i.e. This map is 1-1 and onto, to make it simpler, every point in the real plane can be parameterized by radius and angle, besides 
 this representation is unique. 
@@ -119,7 +92,7 @@ this representation is unique.
 $$ I^2 = \left( \int\limits_{-\infty}^{\infty} exp(-x^2) \, dx \right) * \left( \int\limits_{-\infty}^{\infty} exp(-y^2) \, dy \right)  
 = \int\limits_{-\infty}^{\infty} \int\limits_{-\infty}^{\infty} exp(-(x^2+y^2)) \, dx \, dy 
 = \int\limits_{0}^{\infty} \int\limits_{0}^{2\pi} exp(-r^2) \, r \, dr \, d\theta
-= \int\limits_{0}^{2\pi} \frac{-1}{2} exp^{-x^2} |_{0}^{\infty}
+= \int\limits_{0}^{2\pi} \frac{-1}{2} e{-x^2} |_{0}^{\infty}
 = \pi
 $$ 
 
@@ -138,11 +111,12 @@ Note at this moment the CNT
 
 The mean is intuitively direct to understand, let's recall first the derivation of mean and variance of gaussian distribution.
 The probability density function is \[ \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{(x-\mu)^2}{2 \sigma^2})) \, dx = 1. \]
-Note if we denote the integral $$\int_{-\infty}^{\infty} exp() \, dx
+Note if we denote the integral $$\int_{-\infty}^{\infty} exp() \, dx $$
 
 \\[ x_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2b} \\].
 
-
+{% comment %} 
+    These commments will not include inside the source.
 ## MaxWell Equation
 
 equation | description
@@ -150,3 +124,4 @@ equation | description
 $$\nabla \cdot \vec{\mathbf{B}}  = 0.$$ | divergence of $$\vec{\mathbf{B}}.$$ is zero
 $\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t}  = \vec{\mathbf{0}}$ |  curl of $\vec{\mathbf{E}}$ is proportional to the rate of change of $\vec{\mathbf{B}}$
 $\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} = \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} = 4 \pi \rho$ | _wha?_
+{% endcomment %}
