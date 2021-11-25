@@ -34,7 +34,6 @@ this reduces to find the expected value of $$ \mathbb{E} (X^2) $$. **AN IMPORTAN
 $$ \mathbb{E} (X^2) = \frac{\sum_{i=0}^{n} x_i^2}{n} $$, while $$ \mathbb{E} (X^2) \neq \frac {\left( \sum_{i=0}^{n} x_i \right)^2}{n} $$. Indeed Abuse of notation here;) 
 
 By direct definition, 
-
 $$ Var (X) = \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} (k-\mu)^{2}
 = \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} k^2 - \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} 2npk + \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} n^2 p^2 
 = np \sum_{k=1}^{n} \binom{n-1}{k-1} p^{k-1} q^{(n-1)-(k-1)} ((k-1)+1) - 2 n^2 p^2 \sum_{k=1}^{n} \binom{n-1}{k-1} p^{k-1} q^{(n-1)-(k-1)} + \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} n^2 p^2
@@ -45,7 +44,6 @@ $$ Var (X) = \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} (k-\mu)^{2}
 = np - np^2 = np(1-p) = npq \blacksquare$$
 
 Alternatively,
-
 $$ Var (X) = \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} k^2 - \left( \sum_{k=0}^{n} \binom{n}{k} p^k q^{n-k} * k \right)^2
 = np \sum_{k=0}^{n} \binom{n-1}{k-1} p^{k-1} q^{(n-1)-(k-1)} ((k-1)+1) - (np)^2
 = np \sum_{k=1}^{n} \binom{n-1}{k-1} p^{k-1} q^{(n-1)-(k-1)} (k-1) + np \sum_{k=1}^{n} \binom{n-1}{k-1} p^{k-1} q^{(n-1)-(k-1)} - (np)^2
@@ -55,13 +53,7 @@ $$ Var (X) = \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} k^2 - \left( \sum_{k=0}^{
 = n(n-1)p^2 (p+q)^{n-2} + np (p+q)^{n-1} - (np)^2
 = np(1-p) = npq \blacksquare $$
 
-Then, 
 
-
-\\[ a_1 = x \\]
-\\[ &= x+y \\]
-\\[ &= \mu \\]
-\\[ &= \frac{z^2}{c} \\]
 
 For the Gaussian distribution example, we have the classical white noise graph, or ![bean machine]({{ site.baseurl }}/images/normal.jpg "an image title")
 There was saying that normal distribution was invented from study of coefficients of binomial expansion, check stirling's approximation for more info.
@@ -73,7 +65,6 @@ $$ Var (X) = \sigma $$, and let $$ Z = \frac{X-\mu}{\sigma} $$ be the new random
 We introduce the idea of probability density function here, $$\frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-\frac{(x-\mu)^2}{2 \sigma^2}) \, dx$$ 
 This is the density function which defined at any real point, that is, the result of the integral is 1. The trick to prove is first consider this integral,
 $$ I = \int\limits_{-\infty}^{\infty} exp(-x^2) \, dx $$, if we start with integration by parts, we would have 
-
 $$ I = \int\limits_{-\infty}^{\infty} exp(-x^2) \, dx = x exp^{-x^2} |_{-\infty}^{\infty} - \int\limits_{-\infty}^{\infty} -2x^2 exp(-x^2) \, dx
 = \frac 23 \int\limits_{-\infty}^{\infty} exp(-x^2) \, dx^3 
 = \frac 23 x^3 exp^{-x^2} |_{-\infty}^{\infty} - \frac 23 \int\limits_{-\infty}^{\infty} -2x^4 exp(-x^2) \, dx  
@@ -88,7 +79,6 @@ This would continues forever and seems not wise to do the partial sum anymore, a
 an injective isomorphism $$ (x, \, y) \longmapsto (r, \, \theta) $$, where $$ -\infty < x < \infty$$, $$ -\infty < y < \infty$$, and $$ 0 \leq r < \infty $$, 
 $$ 0 \leq \theta \leq 2\pi$$. i.e. This map is 1-1 and onto, to make it simpler, every point in the real plane can be parameterized by radius and angle, besides 
 this representation is unique. 
-
 $$ I^2 = \left( \int\limits_{-\infty}^{\infty} exp(-x^2) \, dx \right) * \left( \int\limits_{-\infty}^{\infty} exp(-y^2) \, dy \right)  
 = \int\limits_{-\infty}^{\infty} \int\limits_{-\infty}^{\infty} exp(-(x^2+y^2)) \, dx \, dy 
 = \int\limits_{0}^{\infty} \int\limits_{0}^{2\pi} exp(-r^2) \, r \, dr \, d\theta
@@ -98,8 +88,35 @@ $$
 
 Note the geometric meaning of this integral is the volume of the enclosed object with height of $$exp(-x^2)$$, and this volume is bounded (not infinity),  
 hence, we have the small division of area (this's how we are dividing the whole plane) $$r \, dr \, d\theta $$ and take a loop of $$ 2\pi $$; The other 
-explanation is via determinant of jacobian matrix. 
+explanation is via determinant of jacobian matrix.
 
+So the integral of density function on the real line is 1, which is the total probability: 
+$$ \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-\frac{(x-\mu)^2}{2 \sigma^2}) \, dx
+= \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{(x-\mu)}{\sqrt{2} \sigma})^2) \, dx
+= \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-t^2) \, \sqrt{2} \sigma \, du
+= \frac{1}{\sqrt{\pi}} I
+= 1
+$$
+
+And for mean, we are integrating the density function at some point multiply with value at this point, i.e. the distribution of x. 
+$$ \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-\frac{(x-\mu)^2}{2 \sigma^2}) \, x dx
+= \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{(x-\mu)}{\sqrt{2} \sigma})^2) \, x dx
+= \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-t^2) \, (\sqrt{2} \sigma t+\mu) \sqrt{2} \sigma \, du
+= \frac{\sqrt{2} \sigma}{\sqrt{\pi}} \int_{-\infty}^{\infty} e^{-t^2} \, t \, dt + \frac{1}{\sqrt{\pi}} \int_{-\infty}^{\infty} exp(-t^2) \mu \, dt
+= \frac{-\sigma}{\sqrt{2\pi}} e^{-t^2}|_{-\infty}^{\infty} + \frac{1}{\sqrt{\pi}} \int_{-\infty}^{\infty} exp(-t^2) \mu \, dt
+= 0 + frac{\sqrt{\pi}\mu}{\sqrt{\pi}} = \mu
+$$
+
+For variance we're integrating density function times difference between local value and the mean, so
+$$ \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-\frac{(x-\mu)^2}{2 \sigma^2}) \, (x-\mu)^2 \, dx
+= \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{(x-\mu)}{\sqrt{2} \sigma})^2) \, x^2 dx - \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{(x-\mu)}{\sqrt{2} \sigma})^2) \, x^2 dx + \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{(x-\mu)}{\sqrt{2} \sigma})^2) \, \mu^2 dx
+= \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-t^2) \, \sqrt{2} \sigma du
+= \frac{1}{\sqrt{\pi}} I
+= 1
+$$
+
+The Poisson Distribution is an application of taylor's series, since we have to ensure the distribution is 1, notice 
+$$ e^{-x^2} = 1 - x^2 + \frac{1}{2!} x^4 + .. + \frac{1}{n!} (-x^2)^n + ...$$, so the summation equal to 1. The mean is therefore  
 
 ## Central Limit Theorem and Sample Variance
 The following statement about central limit theorem in statistics:
@@ -113,9 +130,17 @@ The mean is intuitively direct to understand, let's recall first the derivation 
 The probability density function is \[ \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{(x-\mu)^2}{2 \sigma^2})) \, dx = 1. \]
 Note if we denote the integral $$\int_{-\infty}^{\infty} exp() \, dx $$
 
-\\[ x_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2b} \\].
+
 
 {% comment %} 
+\\[ x_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2b} \\].
+
+
+\\[ a_1 = x \\]
+\\[ &= x+y \\]
+\\[ &= \mu \\]
+\\[ &= \frac{z^2}{c} \\]
+
     These commments will not include inside the source.
 ## MaxWell Equation
 
