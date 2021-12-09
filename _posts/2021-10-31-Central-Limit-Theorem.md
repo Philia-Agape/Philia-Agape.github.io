@@ -31,7 +31,7 @@ $$ n * Var (X)
 
 Therefore, $$ Var (X) = \frac{\sum_{i=0}^{n} (x_i)^2}{n} - \frac{\mu^{2}}{n} = \mathbb{E} (X^2) - \left( \mathbb{E} (X) \right)^{2} $$,
 this reduces to find the expected value of $$ \mathbb{E} (X^2) $$. **AN IMPORTANT THING TO NOTE HERE IS THAT**, Given $$X = \sum_{i=0}^{n} x_i$$ ,
-$$ \mathbb{E} (X^2) = \frac{\sum_{i=0}^{n} x_i^2}{n} $$, while $$ \mathbb{E} (X^2) \neq \frac {\left( \sum_{i=0}^{n} x_i \right)^2}{n} $$. Indeed Abuse of notation here;) 
+$$ \mathbb{E} (X^2) = \frac{\sum_{i=0}^{n} x_i^2}{n} $$, while $$ \mathbb{E} (X^2) \neq \frac {\left( \sum_{i=0}^{n} x_i \right)^2}{n} $$. Indeed the reason is $$x_{i}$$ are independent, i.e. given the same sample pool, no matter how many times you choose or test, the state of the next one is still unknown except for the mean and standard derivation: you never know what the next chocolate tastes, as long as it's purely random pool, for example, the pool from [Charlie's Chocolate Factory](https://en.wikipedia.org/wiki/Charlie_and_the_Chocolate_Factory_(film)), which is impossible in reality anyway ;) 
 
 By direct definition, 
 $$ Var (X) = \sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} (k-\mu)^{2}
@@ -99,24 +99,34 @@ $$ \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-\frac{(x-\mu)^2}{2 
 $$
 
 And for mean, we are integrating the density function at some point multiply with value at this point, i.e. the distribution of x. 
-$$ \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-\frac{(x-\mu)^2}{2 \sigma^2}) \, x dx
+$$ \mathbb{E} (X) = \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-\frac{(x-\mu)^2}{2 \sigma^2}) \, x dx
 = \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{(x-\mu)}{\sqrt{2} \sigma})^2) \, x dx
 = \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-t^2) \, (\sqrt{2} \sigma t+\mu) \sqrt{2} \sigma \, du
 = \frac{\sqrt{2} \sigma}{\sqrt{\pi}} \int_{-\infty}^{\infty} e^{-t^2} \, t \, dt + \frac{1}{\sqrt{\pi}} \int_{-\infty}^{\infty} exp(-t^2) \mu \, dt
 = \frac{-\sigma}{\sqrt{2\pi}} e^{-t^2}|_{-\infty}^{\infty} + \frac{1}{\sqrt{\pi}} \int_{-\infty}^{\infty} exp(-t^2) \mu \, dt
-= 0 + frac{\sqrt{\pi}\mu}{\sqrt{\pi}} = \mu
+= 0 + frac{ \sqrt{\pi} * \mu}{\sqrt{\pi}} = \mu
 $$
 
 For variance we're integrating density function times difference between local value and the mean, so
-$$ \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-\frac{(x-\mu)^2}{2 \sigma^2}) \, (x-\mu)^2 \, dx
+$$ Var (X) = \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-\frac{(x-\mu)^2}{2 \sigma^2}) \, (x-\mu)^2 \, dx
 = \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{(x-\mu)}{\sqrt{2} \sigma})^2) \, x^2 dx - \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{(x-\mu)}{\sqrt{2} \sigma})^2) \, x^2 dx + \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{(x-\mu)}{\sqrt{2} \sigma})^2) \, \mu^2 dx
 = \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-t^2) \, \sqrt{2} \sigma du
 = \frac{1}{\sqrt{\pi}} I
 = 1
 $$
 
-The Poisson Distribution is an application of taylor's series, since we have to ensure the distribution is 1, notice 
-$$ e^{-x^2} = 1 - x^2 + \frac{1}{2!} x^4 + .. + \frac{1}{n!} (-x^2)^n + ...$$, so the summation equal to 1. The mean is therefore  
+The Poisson Distribution is an application of taylor's series, since we have to ensure the distribution is 1, the probability density function of poisson 
+distribution is $$ Pr(X=k) = e^{-\lambda} \frac{\lambda^k}{k!}$$, where the occurence of k is confined to non-negative integer, since
+$$ e^{-\lambda} = 1 - x + \frac{1}{2!} \lambda^2 + .. + \frac{1}{n!} (-\lambda)^n + ...$$, so the cumulative density function equal to 1 is well defined. 
+
+The mean of gaussian distribution is $$\mathbb{E}(X) = \sum_{k=0}^{\infty} e^{-\lambda} \frac{\lambda^k}{k!} * k = \lambda \sum_{k=1}^{\infty} e^{-\lambda} \frac{\lambda^(k-1)}{(k-1)!} = \lambda$$. 
+
+The variance of poisson distribution is $$\sigma^2 =  sum_{k=0}^{\infty} e^{-\lambda} \frac{\lambda^k}{k!} * (k-\lambda)^2
+= sum_{k=0}^{\infty} e^{-\lambda} \frac{\lambda^k}{k!} * k^2 - sum_{k=0}^{\infty} e^{-\lambda} \frac{\lambda^k}{k!} *2k \lambda +\lambda^2
+= sum_{k=1}^{\infty} e^{-\lambda} \frac{\lambda^k}{(k-1)!} * ((k-1)+1) - 2\lambda^2 sum_{k=1}^{\infty} e^{-\lambda} \frac{\lambda^(k-1)}{(k-1)!} + \lambda^2   
+= \lambda^2 sum_{k=2}^{\infty} e^{-\lambda} \frac{\lambda^(k-2)}{(k-2)!} + \lambda sum_{k=1}^{\infty} e^{-\lambda} \frac{\lambda^(k-1)}{(k-1)!} - 2\lambda^2 sum_{k=1}^{\infty} e^{-\lambda} \frac{\lambda^(k-1)}{(k-1)!} + \lambda^2
+= \lambda^2+\lambda-2\lambda^2+\lambda^2 = \lambda
+$$. 
 
 ## Central Limit Theorem and Sample Variance
 The following statement about central limit theorem in statistics:
