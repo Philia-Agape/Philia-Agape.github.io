@@ -19,7 +19,7 @@ clockwise 90 degree rotation of the bottom layer D: U means Up and D means Down.
 
 Remember there're three orientations, and by convention, we say R is the rotation of right side by 90 degree clockwise with positive Y-axis orientation, while L is the rotation of left side by 90 degree with negative Y-axis orientation, and F is the rotation of front side by 90 degree clockwise with positive X-axis orientation, while B is the rotation of left side by 90 degree with negative Y-axis orientation
 
-Therefore, we say $$\mathbb{G} = \{U, \, D, \, L, \, R, \, F, \, B \} $$ is the generating group of all possible scrambled configuration of the cube from origin state (home). For example, U^2DL is the configuration of applying U twice and D and then L. Note so far it's a free group, just like a dictionary in which you can add words freely to create a new word, the only principle here is $$ UUUU  
+Therefore, we say $$\mathbb{G} = \{U, \, D, \, L, \, R, \, F, \, B \} $$ is the generating group of all possible scrambled configuration of the cube from origin state (home). For example, U^2DL is the configuration of applying U twice and D and then L. Note so far it's a free group, just like a dictionary in which you can add words freely to create a new word, the only principle here is trivial and obvious, for example, firstly, the order of any single operation is four, namely $$ UUUU = LLLL = DDDD = RRRR = FFFF = BBBB = e$$ and $$  
 
 [Group Theory of Rubik](http://web.mit.edu/sp.268/www/2010/rubikSlides.pdf).
 
