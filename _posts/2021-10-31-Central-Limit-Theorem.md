@@ -121,10 +121,10 @@ $$ e^{-\lambda} = 1 - x + \frac{1}{2!} \lambda^2 + .. + \frac{1}{n!} (-\lambda)^
 
 The mean of gaussian distribution is $$\mathbb{E}(X) = \sum_{k=0}^{\infty} e^{-\lambda} \frac{\lambda^k}{k!} * k = \lambda \sum_{k=1}^{\infty} e^{-\lambda} \frac{\lambda^(k-1)}{(k-1)!} = \lambda$$. 
 
-The variance of poisson distribution is $$\sigma^2 =  sum_{k=0}^{\infty} e^{-\lambda} \frac{\lambda^k}{k!} * (k-\lambda)^2
-= sum_{k=0}^{\infty} e^{-\lambda} \frac{\lambda^k}{k!} * k^2 - sum_{k=0}^{\infty} e^{-\lambda} \frac{\lambda^k}{k!} *2k \lambda +\lambda^2
-= sum_{k=1}^{\infty} e^{-\lambda} \frac{\lambda^k}{(k-1)!} * ((k-1)+1) - 2\lambda^2 sum_{k=1}^{\infty} e^{-\lambda} \frac{\lambda^(k-1)}{(k-1)!} + \lambda^2   
-= \lambda^2 sum_{k=2}^{\infty} e^{-\lambda} \frac{\lambda^(k-2)}{(k-2)!} + \lambda sum_{k=1}^{\infty} e^{-\lambda} \frac{\lambda^(k-1)}{(k-1)!} - 2\lambda^2 sum_{k=1}^{\infty} e^{-\lambda} \frac{\lambda^(k-1)}{(k-1)!} + \lambda^2
+The variance of poisson distribution is $$Var(X) = \sum_{k=0}^{\infty} e^{-\lambda} \frac{\lambda^k}{k!} * (k-\lambda)^2
+= \sum_{k=0}^{\infty} e^{-\lambda} \frac{\lambda^k}{k!} * k^2 - \sum_{k=0}^{\infty} e^{-\lambda} \frac{\lambda^k}{k!} *2k \lambda +\lambda^2
+= \sum_{k=1}^{\infty} e^{-\lambda} \frac{\lambda^k}{(k-1)!} * ((k-1)+1) - 2\lambda^2 \sum_{k=1}^{\infty} e^{-\lambda} \frac{\lambda^(k-1)}{(k-1)!} + \lambda^2   
+= \lambda^2 sum_{k=2}^{\infty} e^{-\lambda} \frac{\lambda^(k-2)}{(k-2)!} + \lambda \sum_{k=1}^{\infty} e^{-\lambda} \frac{\lambda^(k-1)}{(k-1)!} - 2\lambda^2 \sum_{k=1}^{\infty} e^{-\lambda} \frac{\lambda^(k-1)}{(k-1)!} + \lambda^2
 = \lambda^2+\lambda-2\lambda^2+\lambda^2 = \lambda
 $$. 
 
@@ -134,9 +134,8 @@ The following statement about central limit theorem in statistics:
 Given one kind of random variable X, with mean $$\mu$$ and standard deviation $$\sigma$$, then if we pick n such samples, 
 the mean of these sample would be $$\mu$$ and the variance of these samples should be $$\frac{\mu}{\sqrt{n}}.$$
 
-Note at this moment the CNT
+Although not explicitly stated, we are assuming the paobability density function of X obeys Gaussian distribution, and the reason is the density function is symmetric with respect to the mean value. The mean is intuitively direct to understand: consider a simple example, soccer balls produced by the same pipline (thus identical) with same expected weight m, and expected variance $$\sigma^2$$, then as we choose to test more and more soccer balls, the average weight converges to m by [Large Number Theorem](https://en.wikipedia.org/wiki/Law_of_large_numbers). The variance  
 
-The mean is intuitively direct to understand, let's recall first the derivation of mean and variance of gaussian distribution.
 The probability density function is \[ \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{(x-\mu)^2}{2 \sigma^2})) \, dx = 1. \]
 Note if we denote the integral $$\int_{-\infty}^{\infty} exp() \, dx $$
 
