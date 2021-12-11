@@ -19,7 +19,7 @@ clockwise 90 degree rotation of the bottom layer D: U means Up and D means Down.
 
 Remember there're three orientations, and by convention, we say R is the rotation of right side by 90 degree clockwise with positive Y-axis orientation, while L is the rotation of left side by 90 degree with negative Y-axis orientation, and F is the rotation of front side by 90 degree clockwise with positive X-axis orientation, while B is the rotation of left side by 90 degree with negative Y-axis orientation.
 
-![Cube Operation!](https://www.google.com/search?q=rubik+cube&client=ubuntu&hs=3ku&channel=fs&sxsrf=AOaemvKrDBqTY0zA6FLdz7nLf5je_1_LXg:1639185188439&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj-uoLXyNr0AhXSkIkEHRjjCGwQ_AUoAnoECAEQBA&biw=1733&bih=1013&dpr=1.58#imgrc=wvY0cU2ZEKKqvM).
+![Cube Operation!]({{ site.baseurl }}/images/rubik.jpg "an image title").
 
 Therefore, we say $$\mathbb{G} = \{U, \, D, \, L, \, R, \, F, \, B \} $$ is the generating group of all possible scrambled configuration of the cube from origin state (home). For example, U^2DL is the configuration of applying U twice and D and then L. Note so far it's a free group, just like a dictionary in which you can add words freely to create a new word, but there exists constraint condition. For example, the order of any single operation is four, namely $$ U^4 = L^4 = D^4 = R^4 = F^4 = B^4 = e$$; The rotation of any middle layer, $$ UD $$, $$ BF $$ or $$ LR $$ has also order four, hence $$ (UD)^4 = (BF)^4 = (LR)^4 = e$$.   
 
