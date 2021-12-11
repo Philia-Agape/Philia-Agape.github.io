@@ -92,7 +92,7 @@ explanation is via determinant of jacobian matrix.
 
 So the integral of density function on the real line is 1, which is the total probability: 
 $$ \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-\frac{(x-\mu)^2}{2 \sigma^2}) \, dx
-= \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{(x-\mu)}{\sqrt{2} \sigma})^2) \, dx
+= \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{x-\mu}{\sqrt{2} \sigma})^2) \, dx
 = \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-t^2) \, \sqrt{2} \sigma \, du
 = \frac{1}{\sqrt{\pi}} I
 = 1
@@ -100,7 +100,7 @@ $$
 
 And for mean, we are integrating the density function at some point multiply with value at this point, i.e. the distribution of x. 
 $$ \mathbb{E} (X) = \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-\frac{(x-\mu)^2}{2 \sigma^2}) \, x dx
-= \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{(x-\mu)}{\sqrt{2} \sigma})^2) \, x dx
+= \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{x-\mu}{\sqrt{2} \sigma})^2) \, x dx
 = \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-t^2) \, (\sqrt{2} \sigma t+\mu) \sqrt{2} \sigma \, du
 = \frac{\sqrt{2} \sigma}{\sqrt{\pi}} \int_{-\infty}^{\infty} e^{-t^2} \, t \, dt + \frac{1}{\sqrt{\pi}} \int_{-\infty}^{\infty} exp(-t^2) \mu \, dt
 = \frac{-\sigma}{\sqrt{2\pi}} e^{-t^2}|_{-\infty}^{\infty} + \frac{1}{\sqrt{\pi}} \int_{-\infty}^{\infty} exp(-t^2) \mu \, dt
@@ -124,7 +124,7 @@ The mean of gaussian distribution is $$\mathbb{E}(X) = \sum_{k=0}^{\infty} e^{-\
 The variance of poisson distribution is $$Var(X) = \sum_{k=0}^{\infty} e^{-\lambda} \frac{\lambda^k}{k!} * (k-\lambda)^2
 = \sum_{k=0}^{\infty} e^{-\lambda} \frac{\lambda^k}{k!} * k^2 - \sum_{k=0}^{\infty} e^{-\lambda} \frac{\lambda^k}{k!} *2k \lambda +\lambda^2
 = \sum_{k=1}^{\infty} e^{-\lambda} \frac{\lambda^k}{(k-1)!} * ((k-1)+1) - 2\lambda^2 \sum_{k=1}^{\infty} e^{-\lambda} \frac{\lambda^(k-1)}{(k-1)!} + \lambda^2   
-= \lambda^2 sum_{k=2}^{\infty} e^{-\lambda} \frac{\lambda^(k-2)}{(k-2)!} + \lambda \sum_{k=1}^{\infty} e^{-\lambda} \frac{\lambda^(k-1)}{(k-1)!} - 2\lambda^2 \sum_{k=1}^{\infty} e^{-\lambda} \frac{\lambda^(k-1)}{(k-1)!} + \lambda^2
+= \lambda^2 \sum_{k=2}^{\infty} e^{-\lambda} \frac{\lambda^(k-2)}{(k-2)!} + \lambda \sum_{k=1}^{\infty} e^{-\lambda} \frac{\lambda^(k-1)}{(k-1)!} - 2\lambda^2 \sum_{k=1}^{\infty} e^{-\lambda} \frac{\lambda^(k-1)}{(k-1)!} + \lambda^2
 = \lambda^2+\lambda-2\lambda^2+\lambda^2 = \lambda
 $$. 
 
