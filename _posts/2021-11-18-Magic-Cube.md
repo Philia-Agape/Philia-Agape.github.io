@@ -22,6 +22,7 @@ Remember there're three orientations, and by convention, we say R is the rotatio
 Therefore, we say $$\mathbb{G} = \{U, \, D, \, L, \, R, \, F, \, B \} $$ is the generating group of all possible scrambled configuration of the cube from origin state (home). For example, U^2DL is the configuration of applying U twice and D and then L. Note so far it's a free group, just like a dictionary in which you can add words freely to create a new word, the only principle here is trivial and obvious, for example, firstly, the order of any single operation is four, namely $$ UUUU = LLLL = DDDD = RRRR = FFFF = BBBB = e$$ and $$  
 
 [Group Theory of Rubik](http://web.mit.edu/sp.268/www/2010/rubikSlides.pdf).
+[Rubik Solve](http://www.geometer.org/rubik/group.pdf).
 
 ## Solveing the cube: Thistlethwaite, Iterative_deepening_A*
 
