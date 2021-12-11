@@ -93,7 +93,7 @@ explanation is via determinant of jacobian matrix.
 So the integral of density function on the real line is 1, which is the total probability: 
 $$ \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-\frac{(x-\mu)^2}{2 \sigma^2}) \, dx
 = \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{x-\mu}{\sqrt{2} \sigma})^2) \, dx
-= \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-t^2) \, \sqrt{2} \sigma \, du
+= \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-t^2) \, \sqrt{2} \sigma \, dt
 = \frac{1}{\sqrt{\pi}} I
 = 1
 $$
@@ -101,7 +101,7 @@ $$
 And for mean, we are integrating the density function at some point multiply with value at this point, i.e. the distribution of x. 
 $$ \mathbb{E} (X) = \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-\frac{(x-\mu)^2}{2 \sigma^2}) \, x dx
 = \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{x-\mu}{\sqrt{2} \sigma})^2) \, x dx
-= \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-t^2) \, (\sqrt{2} \sigma t+\mu) \sqrt{2} \sigma \, du
+= \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-t^2) \, (\sqrt{2} \sigma t+\mu) \sqrt{2} \sigma \, dt
 = \frac{\sqrt{2} \sigma}{\sqrt{\pi}} \int_{-\infty}^{\infty} e^{-t^2} \, t \, dt + \frac{1}{\sqrt{\pi}} \int_{-\infty}^{\infty} exp(-t^2) \mu \, dt
 = \frac{-\sigma}{\sqrt{2\pi}} e^{-t^2}|_{-\infty}^{\infty} + \frac{1}{\sqrt{\pi}} \int_{-\infty}^{\infty} exp(-t^2) \mu \, dt
 = 0 + frac{\sqrt{\pi} \mu}{\sqrt{\pi}} = \mu
@@ -109,11 +109,22 @@ $$
 
 For variance we're integrating density function times difference between local value and the mean, so
 $$ Var (X) = \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-\frac{(x-\mu)^2}{2 \sigma^2}) \, (x-\mu)^2 \, dx
-= \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{(x-\mu)}{\sqrt{2} \sigma})^2) \, x^2 dx - \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{(x-\mu)}{\sqrt{2} \sigma})^2) \, x^2 dx + \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{(x-\mu)}{\sqrt{2} \sigma})^2) \, \mu^2 dx
-= \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-t^2) \, \sqrt{2} \sigma du
-= \frac{1}{\sqrt{\pi}} I
-= 1
+= \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{x-\mu}{\sqrt{2} \sigma})^2) \, x^2 dx - \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{x-\mu}{\sqrt{2} \sigma})^2) \, 2x \mu dx + \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{x-\mu}{\sqrt{2} \sigma})^2) \, \mu^2 dx
+= \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-t^2) \, (\sqrt{2} \sigma t)^2 \sqrt{2} \sigma dt
+= \frac{2 \sigma^2}{\sqrt{\pi}} \int_{-\infty}^{\infty} exp(-t^2) \, t^2 dt
+= \frac{2 \sigma^2}{\sqrt{\pi}} \int_{-\infty}^{\infty}  \, \frac{-t}{2} de^{-t^2}
+= \frac{2 \sigma^2}{\sqrt{\pi}} (\frac{-e^{-u^2}}{2} |_{-\infty}^{\infty} + \int_{-\infty}^{\infty} \, \frac{e^{-t^2}}{2} dt)
+= \frac{2 \sigma^2}{\sqrt{\pi}} \frac{\sqrt{\pi}}{2}
+= \sigma^2
 $$
+
+Or, we can use the formula of variance, $$Var(X) = \mathbb{E}(X^2)-\mathbb{E^2}(X)$$
+$$Var(X) = \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-\frac{(x-\mu)^2}{2 \sigma^2}) \, x^2 \, dx - (\frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-\frac{(x-\mu)^2}{2 \sigma^2}) \, x^2 \, dx)^2
+= \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-t^2) \, (\sqrt{2} \sigma t + \mu)^2 \, \sqrt{2} \sigma dt
+= \frac{1}{\sqrt{\pi}} (\int_{-\infty}^{\infty} exp(-t^2) \, 2\sigma^2 t^2 \, dt + \int_{-\infty}^{\infty} exp(-t^2) 2 \sqrt{2} \sigma \mu t \, dt + \int_{-\infty}^{\infty} exp(-t^2) \mu^2 \, dt)
+= \frac{1}{\sqrt{\pi}} (\sigma^2 \sqrt{})
+= \sigma^2 + \mu^2 - \mu^2 = \sigma^2 
+$$, 
 
 The Poisson Distribution is an application of taylor's series, since we have to ensure the distribution is 1, the probability density function of poisson 
 distribution is $$ Pr(X=k) = e^{-\lambda} \frac{\lambda^k}{k!}$$, where the occurence of k is confined to non-negative integer, since
