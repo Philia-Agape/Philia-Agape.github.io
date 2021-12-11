@@ -104,7 +104,7 @@ $$ \mathbb{E} (X) = \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-\f
 = \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-t^2) \, (\sqrt{2} \sigma t+\mu) \sqrt{2} \sigma \, du
 = \frac{\sqrt{2} \sigma}{\sqrt{\pi}} \int_{-\infty}^{\infty} e^{-t^2} \, t \, dt + \frac{1}{\sqrt{\pi}} \int_{-\infty}^{\infty} exp(-t^2) \mu \, dt
 = \frac{-\sigma}{\sqrt{2\pi}} e^{-t^2}|_{-\infty}^{\infty} + \frac{1}{\sqrt{\pi}} \int_{-\infty}^{\infty} exp(-t^2) \mu \, dt
-= 0 + frac{ \sqrt{\pi} * \mu}{\sqrt{\pi}} = \mu
+= 0 + frac{\sqrt{\pi} \mu}{\sqrt{\pi}} = \mu
 $$
 
 For variance we're integrating density function times difference between local value and the mean, so
