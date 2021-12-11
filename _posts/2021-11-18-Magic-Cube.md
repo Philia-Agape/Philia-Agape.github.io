@@ -19,9 +19,11 @@ clockwise 90 degree rotation of the bottom layer D: U means Up and D means Down.
 
 Remember there're three orientations, and by convention, we say R is the rotation of right side by 90 degree clockwise with positive Y-axis orientation, while L is the rotation of left side by 90 degree with negative Y-axis orientation, and F is the rotation of front side by 90 degree clockwise with positive X-axis orientation, while B is the rotation of left side by 90 degree with negative Y-axis orientation.
 
-Therefore, we say $$\mathbb{G} = \{U, \, D, \, L, \, R, \, F, \, B \} $$ is the generating group of all possible scrambled configuration of the cube from origin state (home). For example, U^2DL is the configuration of applying U twice and D and then L. Note so far it's a free group, just like a dictionary in which you can add words freely to create a new word, but there exists constraint condition. For example, the order of any single operation is four, namely $$ UUUU = LLLL = DDDD = RRRR = FFFF = BBBB = e$$; The  $$ $$  
+![Cube Operation!](https://www.google.com/search?q=rubik+cube&client=ubuntu&hs=3ku&channel=fs&sxsrf=AOaemvKrDBqTY0zA6FLdz7nLf5je_1_LXg:1639185188439&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj-uoLXyNr0AhXSkIkEHRjjCGwQ_AUoAnoECAEQBA&biw=1733&bih=1013&dpr=1.58#imgrc=wvY0cU2ZEKKqvM).
 
-To think of the whole list of generator of subgroup, check:
+Therefore, we say $$\mathbb{G} = \{U, \, D, \, L, \, R, \, F, \, B \} $$ is the generating group of all possible scrambled configuration of the cube from origin state (home). For example, U^2DL is the configuration of applying U twice and D and then L. Note so far it's a free group, just like a dictionary in which you can add words freely to create a new word, but there exists constraint condition. For example, the order of any single operation is four, namely $$ U^4 = L^4 = D^4 = R^4 = F^4 = B^4 = e$$; The rotation of any middle layer, $$ UD $$, $$ BF $$ or $$ LR $$ has also order four, hence $$ (UD)^4 = (BF)^4 = (LR)^4 = e$$.   
+
+To consider the whole list of generator of subgroup, check:
 [Group Theory of Rubik](http://web.mit.edu/sp.268/www/2010/rubikSlides.pdf).
 [Rubik Solve](http://www.geometer.org/rubik/group.pdf).
 
@@ -35,7 +37,8 @@ The origin method contributes from [Thistlethwaite's algorithm](https://www.jaap
 
 Where $$\{I\}$$ is the identity group which means no operation, or preserve itself operation (already home!) ;)
 
-Think of the algorithm here: what is the test you have to do after each operation? If we keep track of every face given a fixed "Camera" setting in front of the cube, i.e. we have labelled the face Up, Forward, Right and thus by symmetry we've defined six faces, thus a configuration. This is the least faces we have to check (lower bound, may not be sufficient), and we may conclude all configurations with same Up, Forward and Right faces as the identical one. 
+Think of the algorithm here: what is the test you have to do after each operation? If we keep track of every face given a fixed "Camera" setting in front of the cube, i.e. we have labelled the face Up, Forward, Right and thus by symmetry we've defined six faces, thus a configuration. This is the least faces we have to check (lower bound, may not be sufficient), and we may conclude all configurations with same Up, Forward and Right faces as the identical one, as long as there's no finite step to reach same Up, Forward, and Right but different Down, Back or Left, seems impossible.
 
+Another question is, how can we still consider such configuration by eliminating the color permutation? That is, if we don't label color unless [necessary](https://en.wikipedia.org/wiki/Four_color_theorem), since it's in fact "camera" choice or cube coloring choice, how many configurations could we have? 
 
 It's said that there's more advanced algorithm to solve rubik, check [Iterative_deepening_A*](https://www.diva-portal.org/smash/get/diva2:816583/FULLTEXT01.pdf).
