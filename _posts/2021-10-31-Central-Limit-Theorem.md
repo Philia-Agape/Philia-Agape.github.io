@@ -122,9 +122,9 @@ Or, we can use the formula of variance, $$Var(X) = \mathbb{E}(X^2)-\mathbb{E^2}(
 $$Var(X) = \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-\frac{(x-\mu)^2}{2 \sigma^2}) \, x^2 \, dx - (\frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-\frac{(x-\mu)^2}{2 \sigma^2}) \, x^2 \, dx)^2
 = \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-t^2) \, (\sqrt{2} \sigma t + \mu)^2 \, \sqrt{2} \sigma dt
 = \frac{1}{\sqrt{\pi}} (\int_{-\infty}^{\infty} exp(-t^2) \, 2\sigma^2 t^2 \, dt + \int_{-\infty}^{\infty} exp(-t^2) 2 \sqrt{2} \sigma \mu t \, dt + \int_{-\infty}^{\infty} exp(-t^2) \mu^2 \, dt)
-= \frac{1}{\sqrt{\pi}} (\sigma^2 \sqrt{})
+= \frac{1}{\sqrt{\pi}} (\sigma^2 \sqrt{\pi} + 0 + \sqrt{\pi}\mu^2)
 = \sigma^2 + \mu^2 - \mu^2 = \sigma^2 
-$$, 
+$$.
 
 The Poisson Distribution is an application of taylor's series, since we have to ensure the distribution is 1, the probability density function of poisson 
 distribution is $$ Pr(X=k) = e^{-\lambda} \frac{\lambda^k}{k!}$$, where the occurence of k is confined to non-negative integer, since
