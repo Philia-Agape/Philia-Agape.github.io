@@ -1,10 +1,9 @@
 ---
 layout: post
-title: First Post!
+title: Cat Dog Series!
 ---
 
-Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).
+In case you've never heard of the classic dog and cat chasing problem: a cat and a dog seated on either end of a line, and started to run towards with velocity $$v_{c}$$, $$v_{d}$$ respectively, and a flying bee was chasing among them with velocity $$v_{b}$$  what do we expect after n hours of chasing?
 
-![_config.yml]({{ site.baseurl }}/images/config.png)
 
-The easiest way to make your first post is to edit this one. Go into /_posts/ and update the Hello World markdown file. For more instructions head over to the [Jekyll Now repository](https://github.com/barryclark/jekyll-now) on GitHub.
+
