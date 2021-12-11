@@ -8,7 +8,7 @@ permalink: /about/
 
 ### More Information
 
-Fooly-Cooly!
+All imagination requires courage
 
 ### Contact me
 
