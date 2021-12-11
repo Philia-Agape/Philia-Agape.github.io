@@ -104,7 +104,7 @@ $$ \mathbb{E} (X) = \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-\f
 = \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-t^2) \, (\sqrt{2} \sigma t+\mu) \sqrt{2} \sigma \, dt
 = \frac{\sqrt{2} \sigma}{\sqrt{\pi}} \int_{-\infty}^{\infty} e^{-t^2} \, t \, dt + \frac{1}{\sqrt{\pi}} \int_{-\infty}^{\infty} exp(-t^2) \mu \, dt
 = \frac{-\sigma}{\sqrt{2\pi}} e^{-t^2}|_{-\infty}^{\infty} + \frac{1}{\sqrt{\pi}} \int_{-\infty}^{\infty} exp(-t^2) \mu \, dt
-= 0 + frac{\sqrt{\pi} \mu}{\sqrt{\pi}} = \mu
+= 0 + \frac{\mu \sqrt{\pi}}{\sqrt{\pi}} = \mu
 $$
 
 For variance we're integrating density function times difference between local value and the mean, so
@@ -118,7 +118,8 @@ $$ Var (X) = \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-\frac{(x-
 = \sigma^2
 $$
 
-Or, we can use the formula of variance, $$Var(X) = \mathbb{E}(X^2)-\mathbb{E^2}(X)$$
+Or, we can use the formula of variance, $$Var(X) = \mathbb{E}(X^2)-\mathbb{E^2}(X)$$, so
+
 $$Var(X) = \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-\frac{(x-\mu)^2}{2 \sigma^2}) \, x^2 \, dx - (\frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-\frac{(x-\mu)^2}{2 \sigma^2}) \, x^2 \, dx)^2
 = \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-t^2) \, (\sqrt{2} \sigma t + \mu)^2 \, \sqrt{2} \sigma dt
 = \frac{1}{\sqrt{\pi}} (\int_{-\infty}^{\infty} exp(-t^2) \, 2\sigma^2 t^2 \, dt + \int_{-\infty}^{\infty} exp(-t^2) 2 \sqrt{2} \sigma \mu t \, dt + \int_{-\infty}^{\infty} exp(-t^2) \mu^2 \, dt)
@@ -134,8 +135,8 @@ The mean of gaussian distribution is $$\mathbb{E}(X) = \sum_{k=0}^{\infty} e^{-\
 
 The variance of poisson distribution is $$Var(X) = \sum_{k=0}^{\infty} e^{-\lambda} \frac{\lambda^k}{k!} * (k-\lambda)^2
 = \sum_{k=0}^{\infty} e^{-\lambda} \frac{\lambda^k}{k!} * k^2 - \sum_{k=0}^{\infty} e^{-\lambda} \frac{\lambda^k}{k!} *2k \lambda +\lambda^2
-= \sum_{k=1}^{\infty} e^{-\lambda} \frac{\lambda^k}{(k-1)!} * ((k-1)+1) - 2\lambda^2 \sum_{k=1}^{\infty} e^{-\lambda} \frac{\lambda^(k-1)}{(k-1)!} + \lambda^2   
-= \lambda^2 \sum_{k=2}^{\infty} e^{-\lambda} \frac{\lambda^(k-2)}{(k-2)!} + \lambda \sum_{k=1}^{\infty} e^{-\lambda} \frac{\lambda^(k-1)}{(k-1)!} - 2\lambda^2 \sum_{k=1}^{\infty} e^{-\lambda} \frac{\lambda^(k-1)}{(k-1)!} + \lambda^2
+= \sum_{k=1}^{\infty} e^{-\lambda} \frac{\lambda^k}{(k-1)!} * ((k-1)+1) - 2\lambda^2 \sum_{k=1}^{\infty} e^{-\lambda} \frac{\lambda^{k-1}}{(k-1)!} + \lambda^2   
+= \lambda^2 \sum_{k=2}^{\infty} e^{-\lambda} \frac{\lambda^{k-2}}{(k-2)!} + \lambda \sum_{k=1}^{\infty} e^{-\lambda} \frac{\lambda^{k-1}}{(k-1)!} - 2\lambda^2 \sum_{k=1}^{\infty} e^{-\lambda} \frac{\lambda^{k-1}}{(k-1)!} + \lambda^2
 = \lambda^2+\lambda-2\lambda^2+\lambda^2 = \lambda
 $$. 
 
@@ -145,11 +146,9 @@ The following statement about central limit theorem in statistics:
 Given one kind of random variable X, with mean $$\mu$$ and standard deviation $$\sigma$$, then if we pick n such samples, 
 the mean of these sample would be $$\mu$$ and the variance of these samples should be $$\frac{\mu}{\sqrt{n}}.$$
 
-Although not explicitly stated, we are assuming the paobability density function of X obeys Gaussian distribution, and the reason is the density function is symmetric with respect to the mean value. The mean is intuitively direct to understand: consider a simple example, soccer balls produced by the same pipline (thus identical) with same expected weight m, and expected variance $$\sigma^2$$, then as we choose to test more and more soccer balls, the average weight converges to m by [Large Number Theorem](https://en.wikipedia.org/wiki/Law_of_large_numbers). The variance  
+Although not explicitly stated, we are assuming the paobability density function of X obeys Gaussian distribution, and the reason is the density function is symmetric with respect to the mean value. The mean is intuitively direct to understand: consider a simple example, soccer balls produced by the same pipline (thus identical) with same expected weight m, and expected variance $$\sigma^2$$, then as we choose to test more and more soccer balls, the average weight converges to m by [Large Number Theorem](https://en.wikipedia.org/wiki/Law_of_large_numbers). The variance, by intuition, would be smaller, and converge to zero as the size of sample test is very large.   
 
-The probability density function is \[ \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} exp(-(\frac{(x-\mu)^2}{2 \sigma^2})) \, dx = 1. \]
-Note if we denote the integral $$\int_{-\infty}^{\infty} exp() \, dx $$
-
+The alternative way of central limit theorem is, Given $$ X_{i} ~ \mathbb{N}(\mu,\sigma)$$, let new random variable $$ Y_{i} = \frac{X_{i}-\mu}{\sigma}$$, then $$Y_{i} ~ \mathbb{N}()$$, and let  
 
 
 {% comment %} 
