@@ -146,12 +146,13 @@ The following statement about central limit theorem in statistics:
 Given one kind of random variable X, with mean $$\mu$$ and standard deviation $$\sigma$$, then if we pick n such samples, 
 the mean of these sample would be $$\mu$$ and the standard deviation of these samples should be $$\frac{\sigma}{\sqrt{n}}.$$
 
-Although not explicitly stated, we are assuming the paobability density function of X obeys Gaussian distribution, and the reason is the density function is symmetric with respect to the mean value. The mean is intuitively direct to understand: consider a simple example, soccer balls produced by the same pipline (thus identical) with same expected weight m, and expected variance $$\sigma^2$$, then as we choose to test more and more soccer balls, the average weight converges to m by [Large Number Theorem](https://en.wikipedia.org/wiki/Law_of_large_numbers). The variance, by intuition, would be smaller, and converge to zero as the size of sample test is very large. $$ Var(Y) =  $$  
+Although not explicitly stated, we are assuming the paobability density function of X obeys Gaussian distribution, and the reason is the density function is symmetric with respect to the mean value. The mean is intuitively direct to understand: consider a simple example, soccer balls produced by the same pipline (thus identical) with same expected weight m, and expected variance $$\sigma^2$$, then as we choose to test more and more soccer balls, the average weight converges to m by [Large Number Theorem](https://en.wikipedia.org/wiki/Law_of_large_numbers). The variance, by intuition, would be smaller, and converge to zero as the size of sample test is very large.
 
-The alternative way of central limit theorem is, Given $$ X_{i} ~ \mathbb{N}(\mu,\sigma)$$, let new random variable $$ Y_{i} = \frac{X_{i}-\mu}{\sigma}$$, then $$\mathbb{E}(Y) = \frac{\mathbb{E}(X_{i})-\mu}{\sigma} = 0$$, and $$Var(Y) = \mathbb{E}(Y^2) - \mathbb{E^2}(Y) = \mathbb{E}(\frac{X^2_{i} - 2\muX_{i} + \mu^2}{\sigma^2}) = \frac{\mu^2+\sigma^2-2\mu^2+\mu^2}{\sigma^2} = 1$$; so $$Y_{i} ~ \mathbb{N}(0,1)$$, finally define the sample random variable $$Z  = \frac{\sum_{i=1}^{N} Y_{i}}{N}$$, we may conclude that 
+The alternative way of central limit theorem is, Given $$ X_{i} \sim \mathbb{N}(\mu,\sigma)$$, let new random variable $$ Y_{i} = \frac{X_{i}-\mu}{\sigma}$$, then $$\mathbb{E}(Y) = \frac{\mathbb{E}(X_{i})-\mu}{\sigma} = 0$$, and $$ Var(Y) = \mathbb{E}(Y^2) - \mathbb{E^2}(Y) = \mathbb{E}(\frac{X^2_{i} - 2\muX_{i} + \mu^2}{\sigma^2}) = \frac{\mu^2+\sigma^2-2\mu^2+\mu^2}{\sigma^2} = 1$$; so $$Y_{i} \sim \mathbb{N}(0,1)$$, finally define the sample random variable $$Z  = \frac{\sum_{i=1}^{N} Y_{i}}{N}$$, we may conclude that 
 $$Var(Z) =  \frac{\sum_{i=1, j=1}^{N} Y_{i} Y_{j}}{N^2} 
 = \frac{\sum_{i=1}^{N} Y^2_{i}}{N^2} + \frac{\sum_{i=1, i \neq j}^{N} Y_{i} Y_{j}}{N^2} 
-= \frac{\sum_{i=1}^{N} Y^2_{i}}{N^2} = \frac{1}{N} = (\frac{\sigma}{\sqrt{N}})^2$$  
+= \frac{\sum_{i=1}^{N} Y^2_{i}}{N^2} = \frac{1}{N} = (\frac{\sigma}{\sqrt{N}})^2 \blacksquare$$ 
+
 
 
 {% comment %} 
