@@ -1,0 +1,67 @@
+
+
+
+```cpp
+int jobScheduling(vector<int>& start, vector<int>& end, vector<int>& profit) {
+        //vector<bool> flag (start.size(), false);
+        const int l = start.size(), ll = l*(l-1)/2;
+        bool cc[l][l];
+        deque<deque<int>> table (l, deque<int> {});
+        for(int i=0; i<l; ++i){
+           cc[i][i] = false; 
+           for(int j=i+1; j<l; ++j){
+               //condition of intersection
+               if((start[j] >= start[i] && start[j] < end[i]) || 
+                  (end[j] > start[i] && end[j] <= end[i])){
+                  cc[i][j] = false;
+                  cc[j][i] = false; 
+               }
+               else{
+                  cc[i][j] = true;
+                  cc[j][i] = true; 
+                  table[i].push_back(j);
+                  //table[i].push_back(j); why not add?
+                  //table record the element with order! 
+               }
+           } 
+        }
+        
+        int ans = profit[0], loc_sum = 0;
+        stack<int> choose = {};
+        stack<int> test = {};
+        stack<int> tt = {};
+        
+        for(int i=0; i<l; ++i){
+            loc_sum = profit[i]; 
+            while(!table[i].empty()){
+             
+               test = {}; 
+               //int temp = table.front();
+               for(auto& temp : table[i]){ 
+                  
+                     tt = test;
+                     bool pick = true; 
+                     while(!tt.empty()){
+                        int tt_top = tt.top();
+                        if(!cc[tt_top][temp]){
+                            pick = false;
+                            break;
+                        } 
+                     }
+                     if(pick){
+                        test.push(temp);
+                        loc_sum += profit[temp];
+                        //ans = (ans < loc_sum) ? loc_sum : ans;  
+                        table[i].pop_front();     
+                     }  
+                  
+               }
+               ans = (ans < loc_sum) ? loc_sum : ans;  
+            }
+            ans = (ans < loc_sum) ? loc_sum : ans;  
+        }
+        
+        return ans;
+    }        
+
+```
