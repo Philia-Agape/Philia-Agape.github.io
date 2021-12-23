@@ -69,3 +69,5 @@ int jobScheduling(vector<int>& start, vector<int>& end, vector<int>& profit) {
     }        
 
 ```
+
+https://scicomp.stackexchange.com/questions/26258/the-easiest-way-to-find-intersection-of-two-intervals
