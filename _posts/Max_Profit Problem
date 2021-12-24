@@ -71,3 +71,96 @@ int jobScheduling(vector<int>& start, vector<int>& end, vector<int>& profit) {
 ```
 
 https://scicomp.stackexchange.com/questions/26258/the-easiest-way-to-find-intersection-of-two-intervals
+
+
+```cpp
+ int jobScheduling(vector<int>& start, vector<int>& end, vector<int>& profit) {
+        //vector<bool> flag (start.size(), false);
+        const int l = start.size(), ll = l*(l-1)/2;
+        bool cc[l][l];
+        deque<set<int>> table (l, set<int> {});
+        for(int i=0; i<l; ++i){
+           cc[i][i] = false; 
+           for(int j=i+1; j<l; ++j){
+               //condition of intersection
+               /*if((start[j] >= start[i] && start[j] < end[i]) || 
+                  (end[j] > start[i] && end[j] <= end[i])){
+                  cc[i][j] = false;
+                  cc[j][i] = false; 
+               }*/
+               if(start[j] >= end[i] || start[i] >= end[j]){
+                  cc[i][j] = true;
+                  cc[j][i] = true; 
+                  table[i].insert(j);
+               }
+               else{
+                  cc[i][j] = false;
+                  cc[j][i] = false; 
+                  //table[i].insert(j);
+                  //table[i].push_back(j); why not add?
+                  //table record the element with order! 
+               }
+           } 
+        }
+        
+        /*for(auto& temp: table[3]){
+           cout << temp;
+        }*/
+        int ans = profit[0], loc_sum = 0, loc_size = 0;
+        bool pick = true; 
+        //stack<int> choose = {};
+        vector<int> test = {};
+        //stack<int> tt = {};
+        
+        for(int i=0; i<l; ++i){
+            loc_sum = profit[i];
+            //vector<bool> flag (l,false);
+            loc_size = 0;
+            //while(!table[i].empty()){
+               //loc_sum = profit[i]; 
+               //tt = test; 
+               //test = {};
+               set<int>::iterator it = table[i].begin();
+               
+                //advance(it,loc_size);  
+               for(it; it!=table[i].end(); ++it){ 
+                  test = {*it};
+                  loc_sum = profit[i] + (*it); 
+                  set<int>::iterator dd = table[i].begin();
+                  advance(dd,1); 
+                   for(dd; dd!=table[i].end(); ++dd){   
+                     //tt = test;
+                     bool pick = true; 
+                     for(auto & test_temp : test){
+                        //int tt_top = tt.top();
+                        if(!cc[test_temp][*dd] ){
+                            pick = false;
+                            break;
+                        } 
+                     }
+                     //stop tt, determine whether to pick
+                        if(pick){
+                           loc_sum += profit[*dd];
+                           test.push_back(*dd);
+                           //table[i].erase(*it); 
+                           //++loc_size;   
+                        }  
+                  }   
+               }
+               //it = table[i].begin(); 
+               //table[i].erase(*it); 
+               //++loc_size; 
+               ans = (ans < loc_sum) ? loc_sum : ans;
+               /*while(!tt.empty()){
+                  int tt_top = tt.top();
+                  deque<int>::iterator it = find(table[i].begin(), table[i].end(), tt_top);
+                  table[i].erase(it);      
+               }*/ 
+                
+            //}
+            ans = (ans < loc_sum) ? loc_sum : ans;  
+        }
+        ans = (ans < loc_sum) ? loc_sum : ans;  
+        return ans;
+    }        
+```
