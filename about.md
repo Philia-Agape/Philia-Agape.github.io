@@ -8,7 +8,9 @@ permalink: /about/
 
 ### More Information
 
-All imagination requires courage
+All Imagination Requires Courage
+
+Open Source, Open Mind
 
 ### Contact me
 
