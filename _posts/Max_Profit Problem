@@ -164,3 +164,58 @@ https://scicomp.stackexchange.com/questions/26258/the-easiest-way-to-find-inters
         return ans;
     }        
 ```
+
+
+Time Limit Exceed!
+```cpp
+class Solution {
+public:
+    void bfs(int index, int loc_max, int* ans, vector<int>& start, vector<int>& end, 
+             vector<int>& profit, vector<int>& flag){
+       
+       if(index == start.size()) return;
+        
+       bool pick = true; 
+       for(auto& it: flag){
+          //negation of end[index] <= start[it] || end[it] <= start[index]
+           if(end[index] > start[it] && end[it] > start[index]){
+              pick = false;
+              break; 
+           }    
+       } 
+       
+ 
+       
+       if(pick){ 
+          flag.push_back(index);
+          loc_max += profit[index]; 
+          *ans = (*ans > loc_max) ? *ans : loc_max;
+          bfs(index+1, loc_max, ans, start, end, profit, flag);
+          flag.pop_back(); 
+          loc_max -= profit[index];  
+       }    
+       
+       /*if(pick){
+          flag.pop_back();   
+       }*/ 
+       //loc_max -= profit[index]; 
+       bfs(index+1, loc_max, ans, start, end, profit, flag);   
+       return; 
+    }
+    
+    
+    int jobScheduling(vector<int>& start, vector<int>& end, vector<int>& profit) {
+        vector<int> flag = {};
+        const int l = start.size(), ll = l*(l-1)/2;
+        int ans = 0; 
+   
+        for(int i=0; i<l; ++i){
+           bfs(i, 0, &ans, start, end, profit, flag);
+        }     
+         
+        return ans;
+    }        
+};
+```    
+
+
