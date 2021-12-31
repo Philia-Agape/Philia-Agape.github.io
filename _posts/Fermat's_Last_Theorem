@@ -1,0 +1,2 @@
+Write every infinite or finite real number as $$ x = a_{0} + a_{1} 10^{-1} + ... + a_{n} 10^{-n}$$
+Then $$ x^{k} = (a_{0} + a_{1} 10^{-1} + ... + a_{n} 10^{-n})^{k} $$
