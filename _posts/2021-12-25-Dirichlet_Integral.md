@@ -11,7 +11,7 @@ Layout: Post
 ##Dirichlet Integral
 
 Consider the integral $$ \int_{0}^{\infty} \frac{sinx}{x} dx$$, first we need to check it's bounded, i.e. the value exist as the result of an improper integral. 
-As x approaches to zero, $$\lim_{x\to 0} \frac{sinx}{x} = \lim_{x\to 0} \frac{cosx}{1} = 1$$, by L'hospital rule, and As x approaches to $$\infty$$, 
+As x approaches to zero, $$\lim_{x\to 0} \frac{sinx}{x} = \lim_{x\to 0} \frac{cosx}{1} = 1$$, $$ \[ \lim_{x\to\infty} f(x) \] $$ by L'hospital rule, and As x approaches to $$\infty$$, 
 $$\lim_{x\to \infty} \frac{sinx}{x} < \lim_{x\to \infty} \frac{|sinx|}{x} < \lim_{x\to \infty} \frac{1}{x} = 0$$, so the function beheaves well at both sides,
 but it's not sufficient to ensure it's converging though, we need to think of the partial sum.  
 
