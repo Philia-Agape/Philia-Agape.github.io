@@ -21,8 +21,10 @@ $$t_{0} = \frac{L_{0}}{v_{b}+v_{c}} = \frac{L}{v_{b}+v_{c}}$$, and then the dog 
 and the dog will be $$ L_{1} = L_{0} - (v_{a}+v_{b}) * t_{0} = L - \frac{L(v_{a}+v_{b})}{v_{b}+v_{c}} = L \frac{v_{c}-v_{a})}{v_{c}+v_{b}}$$, and the time it 
 takes for Alice and dog to meet will be $$t_{1} = \frac{L_{1}}{v_{a}+v_{c}} =  $$, 
 
-In fact, we may realize that the total distance the dog travelled $$ S = \[ \sum_{i=0}^{\infty} t_{i} \] * v_{c}$$, and the distance for the dog to travel will
-be 
+In fact, we may realize that the total distance the dog travelled $$ S = \[ \sum_{i=0}^{\infty} t_{i} \] * v_{c}$$, and the time for the dog to travel for each meeting will be $$ t_{2i} = \frac{L_{2i}}{v_{c}+v_{b}}$$ and $$ t_{2i+1} = \frac{L_{2i+1}}{v_{c}+v_{a}}$$, for even and odd cases respectively. Note if we change 
+the dos's starting position it would be the converse case! Based on the formula for meeting time, we can derive the distance for each meeting, say 
+$$L_{i+1} = L_{i} - (v_{a}+v_{b}) * t_{i} = L{i-1} - (v_{a}+v_{b}) * (t_{i-1}+t_{i}) = \dots = L - (v_{a}+v_{b}) * \[ \sum_{i=0}^{\infty} t_{i}]\$$. 
+By induction, $$ L_{0} = L$$, $$L_{1} = L_{0} - (v_{a}+v_{b}) * t_{0} = 0$$ 
 
 
 
