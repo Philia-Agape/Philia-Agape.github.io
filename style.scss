@@ -18,7 +18,9 @@ html {
 }
 
 body {
-	background: $white;
+	//background: $white;
+  background-image: url("タチコマ.jpg");
+  //background-color: #cccccc;	
   font: 18px/1.4 $helvetica;
   color: $darkGray;
 }
