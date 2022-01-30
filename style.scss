@@ -15,7 +15,7 @@
 
 html {
   font-size: 100%;
-  color: $white;		
+  color: $orange;		
 }
 
 body {
@@ -24,7 +24,7 @@ body {
   //background-color: #cccccc;	
   font: 18px/1.4 $helvetica;
   //color: $darkGray;
-  background-size: 50%;
+  background-size: 120%;
 }
 
 .container {
@@ -38,7 +38,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $helveticaNeue;
   //color: $darkerGray;
   font-weight: bold;
-  color: $white;	
+  color: $orange;	
   line-height: 1.7;
   margin: 1em 0 15px;
   padding: 0;
@@ -260,7 +260,7 @@ nav {
     margin: 2em 1em;
     border-left: 2px solid $gray;
     padding: 0.1em 1em;
-    color: $gray;
+    color: $orange;
     font-size: 22px;
     font-style: italic;
   }
