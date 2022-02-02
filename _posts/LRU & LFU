@@ -1,1 +1,53 @@
 https://juejin.cn/post/6844903698636734478
+
+
+Linked-list to represent the 
+```cpp
+class LFUCache {
+    //stack<int> pre, cur;
+    int num = 0;
+    int* my, flag;
+    //stack<stack<int>> kk;
+    struct node{
+        int val;
+        struct node* next;
+        node(int x): val(x), next(nullptr) {}
+    };
+    struct node* li = new node(0); 
+    struct node* tmp = li;
+public:
+    LFUCache(int capacity) {
+       my = (int*) calloc(1e5,sizeof(int));
+       memset(my,-1,1e5); 
+       //int* flag = calloc(1e5,sizeof(int));  
+       num = capacity; 
+       
+        
+    }
+    
+    int get(int key) {
+        int ans = my[key];
+        return ans;
+    }
+    
+    void put(int key, int value) {
+        if(num == 0){
+           int ss = tmp->val;
+           my[ss] = -1; 
+           tmp = tmp->next;
+           li->val = key;
+           li->next = new node(0);
+           li = li->next; 
+           my[key] = value; 
+        }
+        else{
+           li->val = key; 
+           li->next = new node(0);
+           li = li->next;
+           my[key] = value;
+           --num;
+        }    
+        return;
+    }
+};
+```
