@@ -12,7 +12,9 @@ To search for the loop inside the linked list, and given the condition that we m
 
 Since recording the list is not allowed, we must use two pointers to implement our idea, just like [rabbit chasing turtle.](https://en.wikipedia.org/wiki/The_Tortoise_and_the_Hare)
 
-Now, we assume rabbit's speed is two and turtle's is one, and later will be explained why it's convenient. They represent two pointers pointing to the beginning of the linked list, say the non-loop part, starting from the beginning to the node before the starting node, and  
+Now, we assume rabbit's speed is two and turtle's is one, and later will be explained why it's convenient. They represent two pointers pointing to the beginning of the linked list, say the non-loop part, is of length x, and the loop is of length y, then we assume at the time rabbit first meets turtle, turtle has moved $$n_{1}$$ step, and rabbit has moved $$2* n_{1}$$ steps, if we assume the meeting location is $$\lambda$$ away from the starting node of the loop, and turtle has travelled $$k_{1}$$ round while rabbit has travelled $$k_{2}$$ round, i.e. $$n_{1} = x + \lambda + k_{1} * y$$ and $$2 * n_{1} = x + \lambda + k_{2} * y$$,   
+
+
 
 
 
