@@ -17,12 +17,14 @@ Now, we assume rabbit's speed is two and turtle's is one, and later will be expl
 What Could we derive from this equation? If the pointer has entered the loop and moves y steps, it would remain in the same position, so if the turtle starts at the location they first meet, and let the rabbit starts from the beginning, with same speed of the turtle, then the location they first meet is the starting node of the loop!
 
 ```cpp
-struct node{
+typedef struct node{
    int val;
    struct* next;
 };
 
 ```
+
+
 
 
 
