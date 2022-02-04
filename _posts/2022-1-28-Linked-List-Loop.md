@@ -2,8 +2,6 @@
 layout: post
 comments: true
 title: "Linked List Loop"
-date: 2022-01-28 21:16:00
-tags: c++
 ---
 
 LLL! Not [LL](https://www.lovelive-anime.jp/worldwide/)!
