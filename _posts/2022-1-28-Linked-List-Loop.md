@@ -1,6 +1,5 @@
 ---
 layout: post
-comments: true
 title: "Linked List Loop"
 ---
 
