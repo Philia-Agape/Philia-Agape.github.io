@@ -15,7 +15,7 @@
 
 html {
   font-size: 100%;
-  color: $white;		
+  color: $Orange;		
 }
 
 body {
@@ -206,7 +206,7 @@ img {
 
 .site-description {
   margin: -5px 0 0 0;
-  color: $gray;
+  color: $darkGray;
   font-size: 16px;
 
   @include mobile {
