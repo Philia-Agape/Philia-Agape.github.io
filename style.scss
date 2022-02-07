@@ -15,14 +15,14 @@
 
 html {
   font-size: 100%;
-  color: $Red;		
+  color: $white;		
 }
 
 body {
   //background: $white;
   background-image: url("https://raw.githubusercontent.com/Philia-Agape/Philia-Agape.github.io/master/images/タチコマ.jpg");
   //background-color: #cccccc;	
-  font: 22px/1.4 $helvetica;
+  font: 18px/1.4 $helvetica;
   //color: $darkGray;
   background-size: 100%;
 }
@@ -38,7 +38,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $helveticaNeue;
   //color: $darkerGray;
   font-weight: bold;
-  color: $Red;	
+  color: $white;	
   line-height: 1.7;
   margin: 1em 0 15px;
   padding: 0;
@@ -260,7 +260,7 @@ nav {
     margin: 2em 1em;
     border-left: 2px solid $gray;
     padding: 0.1em 1em;
-    color: $orange;
+    color: $white;
     font-size: 22px;
     font-style: italic;
   }
