@@ -51,3 +51,157 @@ public:
     }
 };
 ```
+
+Define struct listNode, but run time error
+```cpp
+class LFUCache {
+    //deque<int> li;
+    int num = 0;
+    //int* order;
+    struct ListNode{
+        int kk;
+        int vv;
+        struct ListNode* next;
+        ListNode(int x, int y): kk(x), vv(y), next(nullptr) {} //initializer
+    };
+    struct ListNode* ll = new ListNode(0,0); 
+    struct ListNode* rr = ll;
+    struct ListNode* tmp = ll;
+    struct ListNode* ex = ll;
+    unordered_map<int, int> li;
+    unordered_map<int, int> cnt;
+    
+    
+public:
+    LFUCache(int capacity) {
+       //order = (int*) calloc(capacity,sizeof(int));
+       //memset(my,-1,1e5); 
+       //int* flag = calloc(1e5,sizeof(int));  
+       num = capacity;  
+    }
+    
+    int get(int key) {
+       //map<int,pair<int,int>>::iterator ff = find(cnt.begin(), cnt.end(), key);
+       //unordered_map<int, struct ListNode*>::iterator ff = li.begin();
+       //ff = find(li.begin(), li.end(), key); 
+       if(li.find(key) == li.end()) return -1;
+       
+       //int ans = li[key];
+       cnt[key] += 1; 
+       if(rr->kk == key){
+          ll->kk = key;
+          ll->vv = li[key];
+          ll->next = new ListNode(0,0);
+          ll = ll->next;
+          
+          rr = rr->next; 
+       }
+        
+       else{ 
+          ex = rr;
+          tmp = rr->next;
+          while(tmp->kk != key){
+              ex = ex->next;
+              tmp = tmp->next;
+          } 
+          ex->next = tmp->next;
+          ll->kk = key;
+          ll->vv = li[key];
+          ll->next = new ListNode(0,0);
+          ll = ll->next;
+           
+       } 
+       
+        
+       return li[key];
+    }
+    
+    void put(int key, int value) {
+       if(num == 0) return; 
+       if(li.size() < num){
+           ll->kk = key;
+           ll->vv = value;
+           ll->next = new ListNode(0,0);
+           li[key] = value; 
+           ll = ll->next;
+           
+           if(cnt.find(key) != cnt.end()) ++cnt[key];
+           else cnt.insert({key,1});
+       }  
+        
+       else {
+          //sort(cnt.begin(),cnt.end(), 
+          //     [](pair<int,int> a, pair<int,int> b){return a.second<b.second;});
+           
+          bool found = false;
+          int lowb = 2e5; 
+           
+          //Must Go Through once to find minimum # of frequency and whether key exist
+           
+          for(auto& x : cnt){
+             lowb = (x.second < lowb) ? x.second : lowb; 
+             if(x.first == key) found = true;
+          } 
+           
+          //unordered_map<int,int>::iterator it = cnt.begin();
+          //it = cnt.find(key); 
+          if(found){
+              //it->second += 1;
+              cnt[key] += 1;
+              li[key] = value;
+              
+              ex = rr;
+              while(ex->kk != key) ex = ex->next;    
+              ex->vv = value;    
+          }
+          
+          //not found 
+          else{
+              if(cnt[rr->kk] == lowb){
+                  cnt.erase(rr->kk);
+                  cnt[key] = 1;
+                  li.erase(rr->kk);
+                  li[key] = value; 
+                  
+                  rr = rr->next;
+                  ll->kk = key;
+                  ll->vv = value; 
+                  ll->next = new ListNode(0,0);
+                  ll = ll->next;
+                  
+              }   
+              
+              else{
+                 ex = rr;
+                 tmp = ex->next;
+                 while(cnt[tmp->kk] != lowb){
+                    ex = ex->next;
+                    tmp = tmp->next;
+                 }
+                 cnt.erase(tmp->kk);
+                 cnt[key] = 1;
+                 li.erase(tmp->kk);
+                 li[key] = value;
+                 
+                 ex->next = tmp->next; 
+                  
+                 ll->kk = key;
+                 ll->vv = value; 
+                 ll->next = new ListNode(0,0);
+                 ll = ll->next; 
+              }
+              
+             
+          }
+           
+       } 
+        
+        
+       return;
+    }
+};
+
+
+```
+
+
