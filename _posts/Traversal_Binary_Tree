@@ -8,3 +8,110 @@ left and right node of both node as well, recursively. So, we know how the tree 
 There're three ways of traversing a binary tree, preorder, inorder and postorder, which traverses through the order of left-center-right, center-left-right, 
 right-center-left.  
 
+```cpp
+class Solution {
+    int* flag;
+    
+public:
+    TreeNode* buildTree(vector<int>& pre, vector<int>& in) {
+         if(pre.size() == 0) return NULL;
+         else if(pre.size() == 1) return new TreeNode(pre[0]);
+        
+         flag = (int*) calloc(pre.size(),sizeof(int));
+        
+         TreeNode* root = new TreeNode(pre[0]);
+         flag[0] = 1; 
+         //falg[i] = 1 -> pre[i] occupied
+         
+         if(pre[0] != in[0]){
+             root->left = new TreeNode(pre[1]);
+             flag[1] = 1;
+         }
+         else root->left = NULL;
+        
+         int index = 0;
+         for(index=0; index<pre.size(); ++index){
+             if(pre[0] == in[index]) break;
+         }
+         //i.e. index != pre.size()-1
+         
+         if(pre[0] != in[pre.size()-1]){
+             root->right = new TreeNode(pre[index+1]);
+             flag[index+1] = 1;
+         }
+         else root->right = NULL;
+        
+         if(root->left != NULL) build(root->left, pre, in, &flag, 1); 
+         //root->left->val = pre[1]  
+         
+         if(root->right != NULL) build(root->right, pre, in, &flag, index+1); 
+         //root->right->val = pre[index+1] 
+        
+         return root;
+    }
+    
+    
+    void build(TreeNode* dd, vector<int>& pre, 
+                    vector<int>& in, int** flag, int p){
+           //dd->val = pre[p]
+        
+           /*if (p >= pre.size()-1){
+               dd->left = NULL;
+               dd->right = NULL; 
+               return;
+           }*/
+           
+           //if dd->left exists!! dd->left->val = pre[p+1]
+           //if dd->right exists and dd->val = in[q], dd->right->val = pre[q+1]
+            
+           int q = -1, lp = p+1, lq = -1, rp = -1, rq = -1;
+        
+           /*for(int i=0; ){
+               
+           }*/
+           
+           for(int i=0; i<in.size(); ++i){
+               if(lp < pre.size() && pre[lp] == in[i] && (*flag)[lp] == 0){
+                  lq = i;
+                  //cout << "lq found \n"; 
+               }    
+               if(pre[p] == in[i]){
+                   q = i;
+                   //cout << "q found \n"; 
+               }
+               if(q != -1 && q!= pre.size()-1 && in[q+1] == pre[i] && (*flag)[i] == 0){
+                   rp = i;
+                   rq = q+1;
+                   //cout << "rq found \n"; 
+               }
+           }
+           
+           cout << q << " " << lp << " " << lq << " " << rp << " " << rq << "\n"; 
+           for(int i=0; i<pre.size();++i){
+               cout << (*flag)[i] << " ";
+           }   
+           cout << "\n";
+        
+           if(lq < q && lp < pre.size() && (*flag)[lp] == 0){ 
+               dd->left = new TreeNode(pre[lp]);
+               (*flag)[lp] = 1;  
+           }
+           else dd->left = NULL;
+        
+           if(rp > p && rp<pre.size() && (*flag)[rp] == 0){
+               dd->right = new TreeNode(pre[rp]); 
+               (*flag)[rp] = 1;
+           }
+           else dd->right = NULL;
+           
+        
+        if(dd->left != NULL) build(dd->left, pre, in, flag, p+1);
+        if(dd->right != NULL) build(dd->right, pre, in, flag, q+1);    
+        
+        
+        return ;
+    }
+    
+    
+};
+```
