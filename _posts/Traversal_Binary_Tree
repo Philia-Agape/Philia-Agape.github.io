@@ -1,0 +1,10 @@
+
+
+https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
+
+Given a binary tree, we would like to know the total structure of the tree, i.e. given the root node, we know its left tree node and right node, and we know both 
+left and right node of both node as well, recursively. So, we know how the tree looks like...
+
+There're three ways of traversing a binary tree, preorder, inorder and postorder, which traverses through the order of left-center-right, center-left-right, 
+right-center-left.  
+
