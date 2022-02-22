@@ -153,7 +153,7 @@ $$Var(Z) =  \frac{\sum_{i=1, j=1}^{N} Y_{i} Y_{j}}{N^2}
 = \frac{\sum_{i=1}^{N} Y^2_{i}}{N^2} + \frac{\sum_{i=1, i \neq j}^{N} Y_{i} Y_{j}}{N^2} 
 = \frac{\sum_{i=1}^{N} Y^2_{i}}{N^2} = \frac{1}{N} = (\frac{\sigma_{Y_{i}}}{\sqrt{N}})^2 \blacksquare$$ 
 
-
+[Moment Generating Function](http://fisher.stats.uwo.ca/faculty/kulperger/SS3657-2016/Handouts/MGF.pdf)
 
 {% comment %} 
 \\[ x_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2b} \\].
