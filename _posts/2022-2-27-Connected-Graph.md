@@ -9,7 +9,7 @@ title: "Connected Graph"
  
 Q: If there're N nodes, What is the minimum number of edges to make all Nodes connected? 
 
-A: We need at least N-1 edges, and at most $$\bio(N,2)$$ edges.
+A: We need at least N-1 edges, and at most $$\binom{N}{2}$$ edges.
 
 Q: Still N nodes, with E edges, but what is the minimum number of edges to add to connect all Nodes?
 
@@ -30,74 +30,74 @@ Explore Thinking: How to find the distance between any pairs of nodes?
 A: Follow Dijkstra Approach: if there's any middle node to recalculate the distance between any two nodes, add it! If we finish one-time search and no pair of distance update, then jump out of the loop!
 
 ```cpp
-        vector<int> count (n,0);
-        vector<vector<int>> web (n, vector<int>(n,1e5));
-        for(int i=0; i<n; ++i){
-           web[i][i] = 0; 
-        }
+vector<int> count (n,0);
+vector<vector<int>> web (n, vector<int>(n,1e5));
+for(int i=0; i<n; ++i){
+  web[i][i] = 0; 
+}
         
-        for(int i=0; i<num; ++i){
-       
-           int a = connections[i][0], b = connections[i][1]; 
-           web[a][b] = 1;
-           web[b][a] = 1;
-           count[a]++;
-           count[b]++;   
-           //web[connections[i][1]].push_back(connections[i][0]);  
-        }
+for(int i=0; i<num; ++i){
+   int a = connections[i][0], b = connections[i][1]; 
+   web[a][b] = 1;
+   web[b][a] = 1;
+   count[a]++;
+   count[b]++;   
+   //web[connections[i][1]].push_back(connections[i][0]);  
+}
 
-        //Dijkstra
-        bool change = true;
-        int time = 0;
+//Dijkstra
+ 
+bool change = true;
+int time = 0;
         
-        while(change){
-           ++time; 
-           change = false; 
-           for(int i=0; i<n; ++i){
-               for(int j=i+1; j<n; ++j){
-                  if(web[i][j] < 1e5){
-                     for(int k=0; k<n; ++k){
-                        if(web[i][j] + web[j][k] < web[i][k]){
-                            web[i][k] = web[i][j] + web[j][k]; 
-                            web[k][i] = web[i][k];
-                            change = true;
-                        }    
-                     } 
-                  }   
-               }
-           }
+while(change){
+   ++time; 
+   change = false; 
+   for(int i=0; i<n; ++i){
+      for(int j=i+1; j<n; ++j){
+         if(web[i][j] < 1e5){
+            for(int k=0; k<n; ++k){
+               if(web[i][j] + web[j][k] < web[i][k]){
+                   web[i][k] = web[i][j] + web[j][k]; 
+                   web[k][i] = web[i][k];
+                   change = true;
+               }    
+             } 
+           }   
         }
-        //cout << "time = " << time << "\n";
+     }  
+}
+       
+//cout << "time = " << time << "\n";
+
+for(int i=0; i<n; ++i){
+   for(int j=0; j<n; ++j){
+     cout << web[i][j] << " "; 
+   }
+   cout << "\n";
+}
         
-        for(int i=0; i<n; ++i){
-            for(int j=0; j<n; ++j){
-               cout << web[i][j] << " "; 
-            }
-            cout << "\n";
-        }
-        
-        //check connected local pattern and edge
-        vector<bool> vis (n,false);
-        int iso = 0;
-        for(int i=0; i<n; ++i){
-           if(vis[i]) continue;
-           else if(count[i] == 0){
-               ++iso;
-               continue;
-           } 
-           int v = 1;
-           int e = count[i]; 
-           for(int j=i+1; j<n; ++j){
-              if(!vis[j] && web[i][j] < 1e5){
-                  ++v;
-                  e += count[j];
-                  vis[j] = true;
-                  
-              }  
-           }
-           e /= 2; 
-           ++iso;
-        }
+ //check connected local pattern and edge
+vector<bool> vis (n,false);
+ int iso = 0;
+for(int i=0; i<n; ++i){
+   if(vis[i]) continue;
+    else if(count[i] == 0){
+       ++iso;
+       continue;
+    } 
+ int v = 1;
+ int e = count[i]; 
+ for(int j=i+1; j<n; ++j){
+    if(!vis[j] && web[i][j] < 1e5){
+        ++v;
+        e += count[j];
+        vis[j] = true;
+     }  
+}
+    e /= 2; 
+    ++iso;
+}
 ```
 
 Explore Thinking: **IF all nodes were to be placed in $$\mathbb{R}^{2}$$, can we set up any coordinate system to verify the location of each node?**
