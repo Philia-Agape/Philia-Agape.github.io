@@ -1,0 +1,63 @@
+class Solution {
+public:
+    int makeConnected(int n, vector<vector<int>>& connections) {
+        int num = connections.size(); //number of connections
+        if(n-1 > num) return -1;
+        int iso = 0;
+        vector<vector<int>> web (n);
+        vector<int> flag (n);
+        
+        for(int i=0; i<n; ++i){
+           flag[i] = i; 
+        }
+        
+        bool change = true;
+        while(change){
+           change = false; 
+           for(int i=0; i<num; ++i){
+               int a = connections[i][0], b = connections[i][1];
+               //web[a].push_back(b);
+               //web[b].push_back(a);
+               if(flag[b] > flag[a]){
+                  flag[b] = flag[a];
+                  change = true;
+               }    
+               else if(flag[b] < flag[a]){
+                   flag[a] = flag[b];
+                   change = true;
+               }    
+           }
+        }
+        
+        
+        //Orderness of connections is necessary: a>b so if flag[a] == -1, 
+        //no Node value less than a is connected with a
+        
+        //nodes connected with a is greater than a from web
+        //For the loop, make sure
+        /*for(int i=0; i<n; ++i){
+           //if(flag[i] == i){ 
+              int min = flag[i];
+              const int l = web[i].size(); 
+              for(int j=0; j<l; ++j){
+                 min = min > flag[j] ? flag[j] : min; 
+              }
+              flag[i] = min; 
+              for(int j=0; j<l; ++j){
+                    flag[web[i][j]] = min; 
+                 }    
+              //}
+              for(int p=0; p<n; ++p){
+                 cout << flag[p] << " "; 
+              }
+              printf("\n");    
+        }*/   
+        
+        set<int> ans;  
+        for(int i=0; i<n; ++i){
+           ans.insert(flag[i]); 
+        }
+        return ans.size()-1;
+    }
+    
+};
