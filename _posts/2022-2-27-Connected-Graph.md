@@ -19,10 +19,47 @@ Explore Thinking: How to find exactly all pairs of edges to reconnect to make gr
 A: We need to check paid of Nodes in connected parts where they have two or more edges, such that we can destroy this pair and connect them to other connected parts (including isolated Nodes, they are self-connected!)
 
 ```cpp
-   for(int i=0; i<connections.size(); ++i){
+class Solution {
+public:
+int makeConnected(int n, vector<vector<int>>& connections) {
+
+int num = connections.size(); //number of connections
+if(n-1 > num) return -1;
+int iso = 0;
+ vector<vector<int>> web (n);
+vector<int> flag (n);
+for(int i=0; i<n; ++i){
+   flag[i] = i; 
+}
+bool change = true;
+while(change){
+   change = false; 
+   for(int i=0; i<num; ++i){
       int a = connections[i][0], b = connections[i][1];
-      web[a][0];
-   }
+      if(flag[b] > flag[a]){
+        flag[b] = flag[a];
+        change = true;
+      }    
+else if(flag[b] < flag[a]){
+    flag[a] = flag[b];
+    change = true;
+}    
+}
+}
+
+//Orderness of connections is necessary: a>b so if flag[a] == -1, 
+//no Node value less than a is connected with a
+//nodes connected with a is greater than a from web
+//For the loop, make sure
+ set<int> ans;  
+for(int i=0; i<n; ++i){
+  ans.insert(flag[i]); 
+}
+return ans.size()-1;
+}
+    
+};
+
 ```
 
 Explore Thinking: How to find the distance between any pairs of nodes?
