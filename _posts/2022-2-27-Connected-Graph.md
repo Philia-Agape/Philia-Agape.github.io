@@ -18,6 +18,10 @@ A: Idea is to find the number of connected parts, i.e. a locally connected newto
 Explore Thinking: How to find exactly all pairs of edges to reconnect to make graph connected?
 A: We need to check paid of Nodes in connected parts where they have two or more edges, such that we can destroy this pair and connect them to other connected parts (including isolated Nodes, they are self-connected!)
 
+Back to the Problem [Number of Operations to Make Network Connected](https://leetcode.com/problems/number-of-operations-to-make-network-connected/)
+
+The main idea of union find is to classify the locally connected components: given one pair of connected link, we can always update the starting node, since each pair is ordered (actually not even necessary condition for label update!), if we label each node with the node with least value among those connected with it (i.e. there exists a path between two nodes, and we label each node with the node in the path with least value, call it starting node). Thus, whenever we check one pair, we check the starting node label of two and label them with the smaller one, if we go through the whole pairs and no update, then we're finished!   
+
 ```cpp
 class Solution {
 public:
@@ -146,4 +150,4 @@ Explore Thinking: **What if there exists negative distance between nodes?**
 A: Just a temporary thought, then it's a Gain-Loss Expectation problem instead of geometric metrology one: there's no negative distance~~
 
 
-[Number of Operations to Make Network Connected](https://leetcode.com/problems/number-of-operations-to-make-network-connected/)
+
