@@ -8,7 +8,7 @@ title: "Linked List Loop"
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
-LLL! Not [LL](https://www.lovelive-anime.jp/worldwide/)!
+[LLL](https://leetcode.com/problems/linked-list-cycle/)! Not [LL](https://www.lovelive-anime.jp/worldwide/)!
 
 To search for the loop inside the linked list, and given the condition that we must come up with an method having O(1) space complexity.
 
