@@ -24,6 +24,26 @@ typedef struct node{
    struct* next;
 };
 
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+       if(!head || !head->next || !head->next->next) return false; 
+       ListNode* rabbit = head->next->next, *turtle = head->next;
+       while(rabbit != turtle){
+          if(rabbit->next && rabbit->next->next) rabbit = rabbit->next->next;
+          else return false; 
+          turtle = turtle->next; 
+       }
+       turtle = head;
+       while(turtle != rabbit){
+          turtle = turtle->next;
+          rabbit = rabbit->next; 
+       } 
+       printf("the node starts at %d", rabbit->val); 
+       return true; 
+    }
+};
+
 ```
 
 
