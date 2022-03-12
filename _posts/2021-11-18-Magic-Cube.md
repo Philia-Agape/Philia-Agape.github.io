@@ -42,3 +42,4 @@ Think of the algorithm here: what is the test you have to do after each operatio
 Another question is, how can we still consider such configuration by eliminating the color permutation? That is, if we don't label color unless [necessary](https://en.wikipedia.org/wiki/Four_color_theorem), since it's in fact "camera" choice or cube coloring choice, how many configurations could we have? 
 
 It's said that there's more advanced algorithm to solve rubik, check [Iterative_deepening_A*](https://www.diva-portal.org/smash/get/diva2:816583/FULLTEXT01.pdf).
+[Randomize Cube](https://sites.google.com/site/mistergudmundsen/programming)
