@@ -1,0 +1,162 @@
+class LRUCache {
+private:    
+    //unordered_map<int,int> LRUmap;
+    int map_size = 0;
+    
+    struct linkedlist{
+          int key, value;
+          linkedlist* next;
+       public: 
+          linkedlist(int x, int y){key = x; value = y; next = nullptr;} 
+          linkedlist(){key = 0; value = 0; next = nullptr;} 
+          //NULL v.s. nullptr?
+    };
+    
+    LRUCache::linkedlist *left = new LRUCache::linkedlist(-1,-1);
+    LRUCache::linkedlist *right = left;
+    
+public:
+    //Constructor is for Initialization
+    LRUCache(int capacity) { 
+       map_size = capacity; 
+    }
+    
+    int get(int key) {
+        
+       int ans = -1; 
+       //left == right: EMPTY LRU! NO PUT or capacity is zero 
+       if(left->key == key){
+           ans = left->value;
+           right->next = new linkedlist(-1,-1);
+           right->next->key = key, right->next->value = ans;
+           left = left->next;
+           right = right->next;
+           return ans; 
+       }
+       else if(right->key == key){
+           ans = right->value;
+           return ans;
+       } 
+        
+       LRUCache::linkedlist *search = left;
+       while(search->next != nullptr && search->next != right){
+          if(search->next->key == key){
+              ans = search->next->value;
+              right->next = new linkedlist(-1,-1);
+              right->next->key = key, right->next->value = ans;
+              search->next = search->next->next; //<---this may be the right node! 
+              right = right->next;
+              return ans;
+          } 
+          search = search->next; 
+       }
+        
+       //NOT found!
+       return ans; 
+    }
+    
+    void put(int key, int value) {
+        
+        if(map_size > 0){    
+            --map_size; 
+           //FIRST, Check Whether key exists? 
+           //But Check right first to avoid case where capacity = 1
+            
+           if(right->key == key){
+              right->value = value;
+              ++map_size;
+              return; 
+           } 
+            
+           //Capacity is not 1 here! 
+           else if(left->key == key){
+              ++map_size;
+              left = left->next;
+              right->key = key, right->value = value;
+              right->next = new linkedlist(-1,-1);
+              right->next->key = -1, right->next->value = -1;
+              right = right->next;  
+              return; 
+           }
+              //LRUmap.insert(make_pair(key, value));
+              LRUCache::linkedlist *search = left;
+              //Check Whether key exists? 
+              while(search->next != nullptr && search->next != right){
+                 if(search->next->key == key){
+                     ++map_size;
+                     //if(search->next->next != nullptr)
+                        search->next = search->next->next;
+                        right->key = key, right->value = value;
+                        right->next = new linkedlist(-1,-1);
+                        right = right->next; 
+                     return;
+                 }
+                 search = search->next; 
+              } 
+    
+           //IF key did not exist where one Node before Right, update right node is a must
+           right->key = key, right->value = value;
+           if(map_size > 0){ 
+              right->next = new linkedlist(-1,-1);
+              right = right->next;
+           }
+           else{
+              right->next = left;
+           } 
+        }
+        
+        
+        //Size Filled!
+        else{
+           //LRUmap.erase(left->key);
+           //LRUmap.insert(make_pair(key, value));
+           
+           //Check Whether key exists?  
+           if(left->key == key){
+              left->value = value; 
+              right->next = left;
+              right = right->next; 
+              left = left->next;
+              return; 
+           }
+           else if(right->key == key){
+               right->value = value;
+               return;
+           } 
+           
+           LRUCache::linkedlist *search = left; 
+     
+           while(search->next != nullptr && search->next != right){
+              if(search->next->key == key){
+                 search->next = search->next->next;
+                 right->next = new linkedlist(key, value);
+                 right->next->key = key, right->next->value = value;
+                 right = right->next;
+                 right->next = left;
+                 return;
+              }
+              search = search->next; 
+           }
+           //What Happened here? 
+           /*if(search->next == right && search->key == key){
+              IMPOSSIBLE! 
+           }*/ 
+            
+           //NOT FOUND, INSERT NEW AND DELETE LRU 
+           left->key = key, left->value = value;
+           right->next = left;
+           right = right->next; 
+           left = left->next; 
+           return; 
+        }
+        
+        return;
+    }
+};
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * LRUCache* obj = new LRUCache(capacity);
+ * int param_1 = obj->get(key);
+ * obj->put(key,value);
+ */
