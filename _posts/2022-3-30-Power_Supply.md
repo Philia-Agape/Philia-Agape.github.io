@@ -22,4 +22,6 @@ $$U_{3}-U_{1} = \frac{-U}{2} sin(2\pi ft) - \frac{\sqrt{3}U}{2} cos(2\pi ft) - U
 
 Thus, the voltage between any two pairs of L line is theoretically, $$\sqrt{3}$$ Times the EMF of L line.
 
+ [![3-Phase Power Supply](https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/3_Phase_Power_Connected_to_Wye_Load.svg/2560px-3_Phase_Power_Connected_to_Wye_Load.svg.png)]
+
 Explorative Thinking: What is the voltage for the center of circle in a loop circuit? Ideally each line burdens the same resistance. 
