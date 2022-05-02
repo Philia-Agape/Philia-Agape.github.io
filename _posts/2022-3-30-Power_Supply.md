@@ -12,14 +12,26 @@ Think of the power supply nowadays in modern society almost everywhere, one of t
 For Three-Phase Alternating Current, We would have three alternating power supply line, each with $$\frac{2\pi}{3}$$ difference to the other two supply.
 Namely, $$U_{1} = U \times sin(2\pi ft)$$, $$U_{2} = U \times sin(2\pi ft + \frac{2\pi}{3})$$, and $$U_{3} = U \times sin(2\pi ft - \frac{2\pi}{3})$$, and by calculating the difference between two voltage supply, we could derive the power supply through the machine: **Instead of addition, which is the combination of wavelets, but not the power supply thorough the machine!**
 
-Addition is confusing, since we have the fact that $$U_{1}+U_{2}+U_{3} = Usin(2\pi ft) - \frac{U}{2}sin(2\pi ft) + \frac{\sqrt{3}U}{2} cos(2\pi ft) - \frac{U}{2}sin(2\pi ft) - \frac{\sqrt{3}U}{2} cos(2\pi ft) = 0$$, which says at any time the voltage of three power supply sum up to zero.
+Addition is confusing, since we have the fact that 
+$$U_{1}+U_{2}+U_{3} = Usin(2\pi ft) - \frac{U}{2}sin(2\pi ft) + \frac{\sqrt{3}U}{2} cos(2\pi ft) - \frac{U}{2}sin(2\pi ft) - \frac{\sqrt{3}U}{2} cos(2\pi ft) 
+= 0$$, 
+which says at any time the voltage of three power supply sum up to zero.
 
-Calculate the difference between two L(Live) lines, $$U_{1}-U_{2} = Usin(2\pi ft) + \frac{U}{2} sin(2\pi ft) - \frac{\sqrt{3}U}{2} cos(2\pi ft) =  \frac{3U}{2} sin(2\pi ft) - \frac{\sqrt{3}U}{2} cos(2\pi ft) = \sqrt{3}U sin(2\pi ft-\frac{\pi}{6})$$; 
+Calculate the difference between two L(Live) lines, 
+$$U_{1}-U_{2} = Usin(2\pi ft) + \frac{U}{2} sin(2\pi ft) - \frac{\sqrt{3}U}{2} cos(2\pi ft) 
+=  \frac{3U}{2} sin(2\pi ft) - \frac{\sqrt{3}U}{2} cos(2\pi ft) 
+= \sqrt{3}U sin(2\pi ft-\frac{\pi}{6})$$; 
 
-$$U_{2}-U_{3} = \frac{-U}{2} sin(2\pi ft) + \frac{\sqrt{3}U}{2} cos(2\pi ft) + \frac{U}{2} sin(2\pi ft) + \frac{\sqrt{3}U}{2} cos(2\pi ft) = \sqrt{3}U cos(2\pi ft) = \sqrt{3}U sin(2\pi ft + \frac{\pi}{2})$$; 
+$$U_{2}-U_{3} 
+= \frac{-U}{2} sin(2\pi ft) + \frac{\sqrt{3}U}{2} cos(2\pi ft) + \frac{U}{2} sin(2\pi ft) + \frac{\sqrt{3}U}{2} cos(2\pi ft) 
+= \sqrt{3}U cos(2\pi ft) 
+= \sqrt{3}U sin(2\pi ft + \frac{\pi}{2})$$; 
 
-$$U_{3}-U_{1} = \frac{-U}{2} sin(2\pi ft) - \frac{\sqrt{3}U}{2} cos(2\pi ft) - U sin(2\pi ft) = 
-\frac{3U}{2} sin(2\pi ft) - \frac{\sqrt{3}U}{2} cos(2\pi ft) = -\sqrt{3}U sin(2\pi ft+\frac{\pi}{6}) = \sqrt{3} U sin(2\pi ft-\frac{5\pi}{6})$$
+$$U_{3}-U_{1} 
+= \frac{-U}{2} sin(2\pi ft) - \frac{\sqrt{3}U}{2} cos(2\pi ft) - U sin(2\pi ft) 
+= \frac{3U}{2} sin(2\pi ft) - \frac{\sqrt{3}U}{2} cos(2\pi ft) 
+= -\sqrt{3}U sin(2\pi ft+\frac{\pi}{6}) 
+= \sqrt{3} U sin(2\pi ft-\frac{5\pi}{6})$$
 
 Thus, the voltage between any two pairs of L line is theoretically, $$\sqrt{3}$$ Times the EMF of L line.
 
