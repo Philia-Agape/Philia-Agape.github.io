@@ -18,20 +18,22 @@ $$U_{1}+U_{2}+U_{3} = Usin(2\pi ft) - \frac{U}{2}sin(2\pi ft) + \frac{\sqrt{3}U}
 which says at any time the voltage of three power supply sum up to zero.
 
 Calculate the difference between two L(Live) lines, 
-$$U_{1}-U_{2} = Usin(2\pi ft) + \frac{U}{2} sin(2\pi ft) - \frac{\sqrt{3}U}{2} cos(2\pi ft) 
-=  \frac{3U}{2} sin(2\pi ft) - \frac{\sqrt{3}U}{2} cos(2\pi ft) 
-= \sqrt{3}U sin(2\pi ft-\frac{\pi}{6})$$; 
+
+$$U_{1}-U_{2} 
+=Usin(2\pi ft) + \frac{U}{2} sin(2\pi ft) - \frac{\sqrt{3}U}{2} cos(2\pi ft) 
+=\frac{3U}{2} sin(2\pi ft) - \frac{\sqrt{3}U}{2} cos(2\pi ft) 
+=\sqrt{3}U sin(2\pi ft-\frac{\pi}{6})$$; 
 
 $$U_{2}-U_{3} 
-= \frac{-U}{2} sin(2\pi ft) + \frac{\sqrt{3}U}{2} cos(2\pi ft) + \frac{U}{2} sin(2\pi ft) + \frac{\sqrt{3}U}{2} cos(2\pi ft) 
-= \sqrt{3}U cos(2\pi ft) 
-= \sqrt{3}U sin(2\pi ft + \frac{\pi}{2})$$; 
+=\frac{-U}{2} sin(2\pi ft) + \frac{\sqrt{3}U}{2} cos(2\pi ft) + \frac{U}{2} sin(2\pi ft) + \frac{\sqrt{3}U}{2} cos(2\pi ft) 
+=\sqrt{3}U cos(2\pi ft) 
+=\sqrt{3}U sin(2\pi ft + \frac{\pi}{2})$$; 
 
 $$U_{3}-U_{1} 
-= \frac{-U}{2} sin(2\pi ft) - \frac{\sqrt{3}U}{2} cos(2\pi ft) - U sin(2\pi ft) 
-= \frac{3U}{2} sin(2\pi ft) - \frac{\sqrt{3}U}{2} cos(2\pi ft) 
-= -\sqrt{3}U sin(2\pi ft+\frac{\pi}{6}) 
-= \sqrt{3} U sin(2\pi ft-\frac{5\pi}{6})$$
+=\frac{-U}{2} sin(2\pi ft) - \frac{\sqrt{3}U}{2} cos(2\pi ft) - U sin(2\pi ft) 
+=\frac{3U}{2} sin(2\pi ft) - \frac{\sqrt{3}U}{2} cos(2\pi ft) 
+=-\sqrt{3}U sin(2\pi ft+\frac{\pi}{6}) 
+=\sqrt{3} U sin(2\pi ft-\frac{5\pi}{6})$$
 
 Thus, the voltage between any two pairs of L line is theoretically, $$\sqrt{3}$$ Times the EMF of L line.
 
